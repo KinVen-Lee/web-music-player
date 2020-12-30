@@ -1,12 +1,11 @@
 import { Menu, Input, Layout } from "antd";
 const { Search } = Input;
-const { Header} = Layout;
 const TopMenu = () => {
   const onSearch = (value: string) => {
     console.log(value);
   };
   return (
-    <Header>
+    <>
       <div className="logo" />
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
         <Menu.Item key="1">音乐馆</Menu.Item>
@@ -18,7 +17,7 @@ const TopMenu = () => {
           style={{ width: 200, margin: "0 10px" }}
         />
       </Menu>
-    </Header>
+    </>
   );
 };
 export default TopMenu;
