@@ -1,6 +1,7 @@
-import TabBar from '../../component/tabbar'
-
+import NavBar from "../../component/navbar";
 const Main = () => {
-  return <><TabBar/></>;
+  return (
+    <NavBar/>
+  );
 };
 export default Main;
