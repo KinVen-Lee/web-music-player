@@ -3,8 +3,9 @@ import axios from "axios";
 axios.defaults.timeout = 100000;
 // 文档中的统一设置post请求头。下面会说到post请求的几种'Content-Type'
 axios.defaults.headers.post["Content-Type"] = "application/json";
-axios.defaults.baseURL = 'http://localhost:3000/'
-axios.defaults.headers["Access-Control-Allow-Headers"]='Origin, X-Requested-With, content-Type, Accept, Authorization'
+// axios.defaults.baseURL = 'http://localhost:3000/'
+// axios.defaults.headers["Access-Control-Allow-Headers"]='Origin, X-Requested-With, content-Type, Accept, Authorization'
+axios.defaults.headers["Access-Control-Allow-Methods"]='GET, POST, PUT,DELETE,OPTIONS,PATCH'
 /**
  * http request 拦截器
  */
@@ -52,7 +53,7 @@ export function get(url: string, params = {}):Promise<any> {
   return new Promise((resolve, reject) => {
     axios({ method: "get", url, params })
       .then((response) => {
-        resolve(response.data);
+        resolve(response);
       })
       .catch((error) => {
         reject(error);

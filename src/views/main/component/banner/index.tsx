@@ -7,9 +7,8 @@ import axios from "axios";
 const Banner = () => {
   const [bannerList, setBannerList] = useState<any>();
   useEffect(() => {
-    getBanner("banner").then((res) => console.log(res));
+    getBanner("/api/banner").then((res) => setBannerList(res.banners));
     // console.log(a);
-    // setBannerList(a);
   }, []);
   const handle = (e: any) => {
     console.log(bannerList);
