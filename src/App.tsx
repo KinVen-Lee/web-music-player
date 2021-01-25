@@ -8,12 +8,12 @@ const App = () => {
       <Header>
         <TopMenu />
       </Header>
-      {/* <Content>
+      <Content>
         <Main />
       </Content>
-      <Footer>
+      {/* <Footer> */}
 
-      </Footer> */}
+      {/* </Footer> */}
     </Layout>
   );
 };

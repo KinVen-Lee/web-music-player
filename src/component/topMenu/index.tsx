@@ -18,7 +18,6 @@ const TopMenu = () => {
       <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="musicLib">音乐馆</Menu.Item>
         <Menu.Item key="mineMusic">我的音乐</Menu.Item>
-
       </Menu>
       {/* <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
         <Menu.Item key="1">音乐馆</Menu.Item>

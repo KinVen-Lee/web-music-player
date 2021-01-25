@@ -7,12 +7,12 @@ import AlbumRecom from "./component/albumRecom";
 const Main = () => {
   return (
     <>
-      {/* <NavBar />
+      <NavBar />
       <Banner />
-      <SongRecom/>
-      <SongListRecom/>
-      <AlbumRecom/>
-      <TopList/> */}
+      {/* <SongRecom /> */}
+      <SongListRecom />
+      {/* <AlbumRecom /> */}
+      {/* <TopList /> */}
     </>
   );
 };
