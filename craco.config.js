@@ -38,43 +38,43 @@ module.exports = {
       new WebpackBar({
         profile: true,
       }),
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // 查看打包的进度
-      new SimpleProgressWebpackPlugin(),
+      // new SimpleProgressWebpackPlugin(),
       // 时间转换工具采取day替换moment
-      new AntdDayjsWebpackPlugin(),
+      // new AntdDayjsWebpackPlugin(),
       // // 新增模块循环依赖检测插件
-      ...whenDev(
-        () => [
-          new CircularDependencyPlugin({
-            exclude: /node_modules/,
-            include: /src/,
-            failOnError: true,
-            allowAsyncCycles: false,
-            cwd: process.cwd(),
-          }),
-          // webpack-dev-server 强化插件
-          new DashboardPlugin(),
-          new webpack.HotModuleReplacementPlugin(),
-        ],
-        []
-      ),
+      // ...whenDev(
+      //   () => [
+      //     new CircularDependencyPlugin({
+      //       exclude: /node_modules/,
+      //       include: /src/,
+      //       failOnError: true,
+      //       allowAsyncCycles: false,
+      //       cwd: process.cwd(),
+      //     }),
+      //     // webpack-dev-server 强化插件
+      //     new DashboardPlugin(),
+      //     new webpack.HotModuleReplacementPlugin(),
+      //   ],
+      //   []
+      // ),
       /**
        * 编译产物分析
        *  - https://www.npmjs.com/package/webpack-bundle-analyzer
        * 新增打包产物分析插件
        */
-      ...when(
-        isBuildAnalyzer,
-        () => [
-          new BundleAnalyzerPlugin({
-            analyzerMode: "static", // html 文件方式输出编译分析
-            openAnalyzer: false,
-            reportFilename: path.resolve(__dirname, `analyzer/index.html`),
-          }),
-        ],
-        []
-      ),
+      // ...when(
+      //   isBuildAnalyzer,
+      //   () => [
+      //     new BundleAnalyzerPlugin({
+      //       analyzerMode: "static", // html 文件方式输出编译分析
+      //       openAnalyzer: false,
+      //       reportFilename: path.resolve(__dirname, `analyzer/index.html`),
+      //     }),
+      //   ],
+      //   []
+      // ),
       ...whenProd(
         () => [
           // new TerserPlugin({
@@ -191,27 +191,27 @@ module.exports = {
         // {
         //   plugin: FastRefreshCracoPlugin,
         // },
-        {
-          plugin: CracoVtkPlugin(),
-        },
-        {
-          plugin: new AntdDayjsWebpackPlugin(),
-        },
+        // {
+        //   plugin: CracoVtkPlugin(),
+        // },
+        // {
+        //   plugin: new AntdDayjsWebpackPlugin(),
+        // },
       ],
       []
     ),
     // 方案1、配置Antd主题less
-    {
-      plugin: CracoLessPlugin,
-      options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: { "@primary-color": "#1DA57A" },
-            javascriptEnabled: true,
-          },
-        },
-      },
-    },
+    // {
+    //   plugin: CracoLessPlugin,
+    //   options: {
+    //     lessLoaderOptions: {
+    //       lessOptions: {
+    //         modifyVars: { "@primary-color": "#1DA57A" },
+    //         javascriptEnabled: true,
+    //       },
+    //     },
+    //   },
+    // },
     // 方案2、配置Antd主题
     // {
     //   plugin: CracoAntDesignPlugin,
