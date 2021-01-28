@@ -1835,7 +1835,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /video/group?id=9104
  */
-
+export async function getVideoGroup(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 获取全部视频列表
 说明 : 调用此接口,可获取视频分类列表,分页参数只能传入offset
@@ -1846,7 +1849,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /video/timeline/all
  */
-
+export async function getVideoTimeLineAll(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 获取推荐视频
 说明 : 调用此接口, 可获取推荐视频,分页参数只能传入offset
@@ -1859,7 +1865,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /video/timeline/recommend
  */
-
+export async function getVideoGroupRecommend(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 相关视频
 说明 : 调用此接口 , 可获取相关视频
@@ -1870,7 +1879,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /related/allvideo?id=89ADDE33C0AAE8EC14B99F6750DB954D
  */
-
+export async function getRelatedAllVideo(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 视频详情
 说明 : 调用此接口 , 可获取视频详情
@@ -1881,7 +1893,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /video/detail?id=89ADDE33C0AAE8EC14B99F6750DB954D
  */
-
+export async function getVideoDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 获取视频点赞转发评论数数据
 说明 : 调用此接口 , 传入 vid ( 视频id ) , 可获取对应视频点赞转发评论数数据 必选参数 : vid: 视频id
@@ -1890,7 +1905,10 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 调用例子 : /video/detail/info?vid=89ADDE33C0AAE8EC14B99F6750DB954D
  */
-
+export async function getVideoDetailInfo(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 获取视频播放地址
 说明 : 调用此接口 , 传入视频 id,可获取视频播放地址
@@ -1900,13 +1918,21 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 接口地址 : /video/url
 
 调用例子 : /video/url?id=89ADDE33C0AAE8EC14B99F6750DB954D
-
+*/
+export async function getVideoUrl(url: string) {
+  const result = await get(url);
+  return result;
+}
+/*
 所有榜单
 说明 : 调用此接口,可获取所有榜单 接口地址 : /toplist
 
 调用例子 : /toplist
  */
-
+export async function getTopList(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 排行榜详情
 说明: 请使用歌单详情接口,传入排行榜id获取排行榜详情数据(排行榜也是歌单的一种)
@@ -1945,7 +1971,10 @@ type : 地区
 
 调用例子 : /toplist/artist
  */
-
+export async function getTopListArtist(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 云盘
 说明 : 登录后调用此接口 , 可获取云盘数据 , 获取的数据没有对应 url, 需要再调用一 次 /song/url 获取 url
@@ -1960,7 +1989,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*200, 其中 200 为 lim
 
 调用例子 : /user/cloud
  */
-
+export async function getUserCloud(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 云盘数据详情
 说明 : 登录后调用此接口 , 传入云盘歌曲 id，可获取云盘数据详情
@@ -1971,6 +2003,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*200, 其中 200 为 lim
 
 调用例子 : /user/cloud/detail?id=5374627
  */
+export async function getUserCloudDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 
 /**
  * 云盘歌曲删除
@@ -1983,6 +2019,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*200, 其中 200 为 lim
 调用例子 : /user/cloud/del
 
  */
+export async function getUserCloudDel(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 云盘上传
 说明 : 登录后调用此接口,使用'Content-Type': 'multipart/form-data'上传mp3 formData(name为'songFile'),可上传歌曲到云盘
@@ -1997,7 +2037,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*200, 其中 200 为 lim
 
 调用例子 : /cloud
  */
-
+export async function getCloud(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台banner
 说明 : 调用此接口,可获取电台banner
@@ -2007,6 +2050,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*200, 其中 200 为 lim
 调用例子 : /dj/banner
 
  */
+export async function getDjBanner(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台个性推荐
 说明 : 调用此接口,可获取电台个性推荐列表 可选参数 :
@@ -2017,7 +2064,10 @@ limit : 返回数量,默认为 6,总条数最多6条
 
 调用例子 : /dj/personalize/recommend?limit=5
  */
-
+export async function getDjPersonalizeRecommend(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台订阅者列表
 说明 : 调用此接口,可获取电台订阅者列表 必选参数 : id: 电台id
@@ -2030,6 +2080,10 @@ limit : 返回数量,默认为 20
 
 调用例子 : /dj/subscriber?id=335425050 , /dj/subscriber?id=335425050&time=1602761825390
  */
+export async function getDjSubscriber(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 
 用户电台
@@ -2041,7 +2095,10 @@ limit : 返回数量,默认为 20
 
 调用例子 : /user/audio?uid=32953014
  */
-
+export async function getUserAudio(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 热门电台
 说明 : 调用此接口,可获取热门电台
@@ -2054,7 +2111,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/hot
  */
-
+export async function getDjHot(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 节目榜
 说明 : 登录后调用此接口 , 可获得电台节目榜
@@ -2069,6 +2129,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*100, 其中 100 为 lim
 
 调用例子 : /dj/program/toplist?limit=1
  */
+export async function getDjProgramTopList(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 
 电台 - 付费精品
@@ -2083,6 +2147,10 @@ limit : 返回数量 , 默认为 100 (不支持 offset)
 调用例子 : /dj/toplist/pay?limit=30
 
  */
+export async function getDjTopListPay(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 24小时节目榜
 说明 : 调用此接口,可获取24小时节目榜
@@ -2095,7 +2163,10 @@ limit : 返回数量 , 默认为 100 (不支持 offset)
 
 调用例子 : /dj/program/toplist/hours?limit=1
  */
-
+export async function getDjProgramTopListHours(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 24小时主播榜
 说明 : 调用此接口,可获取24小时主播榜
@@ -2108,7 +2179,10 @@ limit : 返回数量 , 默认为 100 (不支持 offset)
 
 调用例子 : /dj/toplist/hours?limit=30
  */
-
+export async function getDjTopListHours(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 主播新人榜
 说明 : 调用此接口,可获取主播新人榜
@@ -2121,7 +2195,10 @@ limit : 返回数量 , 默认为 100 (不支持 offset)
 
 调用例子 : /dj/toplist/newcomer?limit=30
  */
-
+export async function getDjTopListNewcomer(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 最热主播榜
 说明 : 调用此接口,可获取最热主播榜
@@ -2135,6 +2212,10 @@ limit : 返回数量 , 默认为 100 (不支持 offset)
 调用例子 : /dj/toplist/popular?limit=30
 
  */
+export async function getDjTopListPopular(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 新晋电台榜/热门电台榜
 说明 : 登录后调用此接口 , 可获得新晋电台榜/热门电台榜
@@ -2152,6 +2233,10 @@ type: 榜单类型, new 为新晋电台榜,hot为热门电台榜
 调用例子 : /dj/toplist?type=hot /dj/toplist?type=new&limit=1
 
  */
+export async function getDjTopList(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 类别热门电台
 可选参数 :
@@ -2167,6 +2252,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 调用例子 : /dj/radio/hot?cateId=2001(创作|翻唱) /dj/radio/hot?cateId=10002 (3D|电子)
 
  */
+export async function getDjRadioHot(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 推荐
 说明 : 登录后调用此接口 , 可获得推荐电台
@@ -2176,6 +2265,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 调用例子 : /dj/recommend
 
  */
+export async function getDjRecommend(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 分类
 说明 : 登录后调用此接口 , 可获得电台类型
@@ -2185,6 +2278,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 调用例子 : /dj/catelist
 
  */
+export async function getDjCateList(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 分类推荐
 说明 : 登录后调用此接口 , 传入分类,可获得对应类型电台列表
@@ -2196,6 +2293,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 调用例子 : /dj/recommend/type?type=1(明星做主播) /dj/recommend/type?type=2001 (创作|翻唱)
 
  */
+export async function getDjRecommendType(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 订阅
 说明 : 登录后调用此接口 , 传入rid, 可订阅 dj,dj 的 rid 可通过搜索指定 type='1009' 获取其 id, 如/search?keywords= 代码时间 &type=1009
@@ -2207,6 +2308,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 调用例子 : /dj/sub?rid=336355127&t=1 ( 对应关注 ' 代码时间 ') /dj/sub?rid=336355127&t=0 ( 对应取消关注 ' 代码时间 ')
 
  */
+export async function getDjSub(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台的订阅列表
 说明 : 登录后调用此接口 , 可获取订阅的电台列表
@@ -2215,7 +2320,10 @@ cateId: 类别 id,可通过 /dj/category/recommend 接口获取
 
 调用例子 : /dj/sublist
  */
-
+export async function getDjSublist(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 付费精选
 说明 : 可以获取付费精选的电台列表 , 传入 limit 和 offset 可以进行分页
@@ -2230,7 +2338,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/paygift?limit=10&offset=20
  */
-
+export async function getDjPaygift(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 非热门类型
 说明 : 登录后调用此接口, 可获得电台非热门类型
@@ -2239,7 +2350,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/category/excludehot
  */
-
+export async function getDjCategoryExcludehot(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 推荐类型
 说明 : 登录后调用此接口, 可获得电台推荐类型
@@ -2248,7 +2362,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/category/recommend
  */
-
+export async function getDjCategoryRecommend(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 今日优选
 说明 : 登录后调用此接口, 可获得电台今日优选
@@ -2257,7 +2374,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/today/perfered
  */
-
+export async function getDjTodayPerfered(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 详情
 说明 : 登录后调用此接口 , 传入rid, 可获得对应电台的详情介绍
@@ -2268,7 +2388,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /dj/detail?rid=336355127 ( 对应 ' 代码时间 ' 的详情介绍 )
  */
-
+export async function getDjDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 节目
 说明 : 登录后调用此接口 , 传入rid, 可查看对应电台的电台节目以及对应的 id, 需要 注意的是这个接口返回的 mp3Url 已经无效 , 都为 null, 但是通过调用 /song/url 这 个接口 , 传入节目 id 仍然能获取到节目音频 , 如 /song/url?id=478446370 获取代 码时间的一个节目的音频
@@ -2287,7 +2410,10 @@ asc : 排序方式,默认为 false (新 => 老 ) 设置 true 可改为 老 => �
 
 调用例子 : /dj/program?rid=336355127&limit=40 ( 对应 ' 代码时间 ' 的节目列表 )
  */
-
+export async function getDjProgram(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 电台 - 节目详情
 说明 : 调用此接口传入电台节目id,可获得电台节目详情
@@ -2298,7 +2424,10 @@ asc : 排序方式,默认为 false (新 => 老 ) 设置 true 可改为 老 => �
 
 调用例子 : /dj/program/detail?id=1367665101
  */
-
+export async function getDjProgramDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 通知 - 私信
 说明 : 登录后调用此接口 ,可获取私信
@@ -2314,6 +2443,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 调用例子 : /msg/private?limit=3
 
  */
+export async function getMsgPrivate(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 发送私信
 说明 : 登录后调用此接口 , 传入用户 id 和要发送的信息, 可以发送私信,返回内容为历史私信,包含带歌单的私信信息(注:不能发送私信给自己)
@@ -2327,8 +2460,11 @@ msg : 要发送的信息
 接口地址 : /send/text
 
 调用例子 : /send/text?user_ids=32953014&msg=test,/send/text?user_ids=32953014,475625142&msg=test
-
  */
+export async function getSendText(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 发送私信音乐
 说明 : 登录后调用此接口 , 传入用户 id 和要发送的信息,音乐id, 可以发送音乐私信,返回内容为历史私信
@@ -2343,7 +2479,10 @@ msg : 要发送的信息
 
 调用例子 : /send/song?user_ids=1&id=351318&msg=测试
  */
-
+export async function getSendSong(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 发送私信(带歌单)
 说明 : 登录后调用此接口 , 传入用户 id 和要发送的信息和歌单 id, 可以发送带歌单的私信(注:不能发送重复的歌单)
@@ -2359,6 +2498,10 @@ msg : 要发送的信息
 调用例子 : /send/playlist?msg=test&user_ids=475625142&playlist=705123491,/send/playlist?msg=test2&user_ids=475625142,32953014&playlist=705123493
 
  */
+export async function getSendPlayList(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 最近联系人
 说明 : 登录后调用此接口 ,可获取最接近联系人
@@ -2367,6 +2510,10 @@ msg : 要发送的信息
 
 调用例子 : /msg/recentcontact
  */
+export async function getMsgRecentContact(url: string) {
+  const result = await get(url);
+  return result;
+}
 
 /**
  * 私信内容
@@ -2382,7 +2529,10 @@ before : 分页参数,取上一页最后一项的 time 获取下一页数据
 
 调用例子 : /msg/private/history?uid=9003 (云音乐小秘书)
  */
-
+export async function getMsgPrivateHistory(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 通知 - 评论
 说明 : 登录后调用此接口 ,可获取评论
@@ -2398,9 +2548,11 @@ before : 分页参数,取上一页最后一个歌单的 updateTime 获取下一�
 接口地址 : /msg/comments
 
 调用例子 : /msg/comments?uid=32953014
-
-
  */
+export async function getMsgComments(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 通知 - @我
 说明 : 登录后调用此接口 ,可获取@我数据
@@ -2415,6 +2567,10 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /msg/forwards?limit=3
  */
+export async function getMsgForward(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 通知 - 通知
 说明 : 登录后调用此接口 ,可获取通知
@@ -2436,7 +2592,10 @@ lasttime : 返回数据的 time ,默认-1,传入上一次返回结果的 time,�
 
 调用例子 : /setting
  */
-
+export async function getSetting(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 数字专辑-新碟上架
 说明 : 调用此接口 ,可获取数字专辑-新碟上架
@@ -2450,6 +2609,11 @@ offset : 偏移数量，用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit
 
 调用例子 : /album/list?limit=10
  */
+export async function getAlbumList(url: string) {
+  const result = await get(url);
+  return result;
+}
+
 
 /**
  * 数字专辑&数字单曲-榜单
@@ -2469,6 +2633,11 @@ type : daily:日榜,week:周榜,year:年榜,total:总榜
 
 调用例子 : /album/songsaleboard?type=year&year=2020&albumType=0
  */
+export async function getAlbumSongSaleboard(url: string) {
+  const result = await get(url);
+  return result;
+}
+
 
 /**
  * 数字专辑-语种风格馆
@@ -2486,6 +2655,11 @@ area 地区 Z_H:华语,E_A:欧美,KR:韩国,JP:日本
 
 调用例子 : /album/list/style?area=Z_H&offset=2
  */
+
+export async function getAlbumListStyle(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 
 数字专辑详情
@@ -2495,6 +2669,10 @@ area 地区 Z_H:华语,E_A:欧美,KR:韩国,JP:日本
 
 调用例子 : /album/detail?id=84547195
  */
+export async function getAlbumDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 
 /**
  * 我的数字专辑
@@ -2504,6 +2682,10 @@ area 地区 Z_H:华语,E_A:欧美,KR:韩国,JP:日本
 
 调用例子 : /digitalAlbum/purchased?limit=10
  */
+export async function getDigitalAlbumPurchased(url: string) {
+  const result = await get(url);
+  return result;
+}
 
 /**
  * 购买数字专辑
@@ -2522,6 +2704,7 @@ quantity : 购买的数量
 调用例子 : /digitalAlbum/ordering?id=86286082&payment=3&quantity=1
  */
 
+
 /**
  * 音乐日历
 说明 : 登录后调用此接口,传入开始和结束时间,可获取音乐日历
@@ -2531,6 +2714,10 @@ quantity : 购买的数量
 调用例子 : /calendar?startTime=1606752000000&endTime=1609430399999
 
  */
+export async function getCanlendar(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 云贝
 说明 : 登录后调用此接口可获取云贝签到信息(连续签到天数,第二天全部可获得的云贝)
@@ -2625,28 +2812,32 @@ offset: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)*10, 其中 10 为 
 调用例子 : /yunbei/tasks/expense?limit=1
  */
 
+
+
 /**
  * 关注歌手新歌
-说明 :登录后调用此接口可获取关注歌手新歌
-
-可选参数 : limit: 取出评论数量 , 默认为 20
-
-before: 上一页数据返回的publishTime的数据
-
-接口地址 : /artist/new/song
-
-调用例子 : /artist/new/song?limit=1 /artist/new/song?limit=1&before=1602777625000
+ * 说明 :登录后调用此接口可获取关注歌手新歌
+ * 可选参数 : limit: 取出评论数量 , 默认为 20
+ * before: 上一页数据返回的publishTime的数据
+ * 接口地址 : /artist/new/song
+ * 调用例子 : /artist/new/song?limit=1 
+ *           /artist/new/song?limit=1&before=1602777625000
  */
+export async function getArtistNewSong(url: string) {
+  const result = await get(url);
+  return result;
+}
+
 
 /**
  * 关注歌手新MV
-说明 :登录后调用此接口可获取关注歌手新MV
-
-可选参数 : limit: 取出评论数量 , 默认为 20
-
-before: 上一页数据返回的publishTime的数据
-
-接口地址 : /artist/new/mv
-
-调用例子 : /artist/new/mv?limit=1 /artist/new/mv?limit=1&before=1602777625000
+ * 说明 :登录后调用此接口可获取关注歌手新MV
+ * 可选参数 : limit: 取出评论数量 , 默认为 20
+ * before: 上一页数据返回的publishTime的数据
+ * 接口地址 : /artist/new/mv
+ * 调用例子 : /artist/new/mv?limit=1 /artist/new/mv?limit=1&before=1602777625000
  */
+export async function getArtistNewMV(url: string) {
+  const result = await get(url);
+  return result;
+}
