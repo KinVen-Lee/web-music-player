@@ -1,6 +1,7 @@
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
 import { NavBarData } from "../interface";
+import "./index.less";
 interface NavBarProps {
   dataSource?: NavBarData[];
   className?: string;
@@ -9,18 +10,16 @@ interface NavBarProps {
 
 const NavBar = (props: NavBarProps) => {
   const { dataSource, className, style } = props;
-
   const [current, setCurrent] = useState("");
   const handleClick = (e: any) => {
     setCurrent(e.key);
   };
-
   useEffect(() => {
     dataSource && setCurrent(dataSource[0].key ?? "");
   }, []);
 
   return (
-    <div className={className} style={style}>
+    <div className={`nav-bar ${className}`} style={style}>
       <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
         {dataSource &&
           dataSource.map((item) => (
