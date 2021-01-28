@@ -1,11 +1,28 @@
+import { useEffect, useState } from "react";
+import { getPersonalizedDjprogram } from "@netWork/request";
+
+import "./index.less";
+
+/**
+ * 推荐电台
+ */
 const AlbumRecom = () => {
-    return (
-      <div className="albumRecom">
-        <h2>新碟推荐</h2>
-        
-      </div>
+  const [songList, setSongList] = useState<any>(null);
+  useEffect(() => {
+    getPersonalizedDjprogram("/api/personalized/djprogram").then((res) =>
+      setSongList(res.result)
     );
-  };
-  
-  export default AlbumRecom;
-  
+  }, []);
+
+  return (
+    <>
+      <div className="album-Recom">
+        <div className="title">
+          <h2>推荐电台</h2>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AlbumRecom;

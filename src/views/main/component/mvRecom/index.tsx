@@ -10,7 +10,9 @@ const MVRecom = () => {
   const [startIndex, setStartIndex] = useState<number>(0);
   const [type, setType] = useState<number>(0);
   useEffect(() => {
-    getPersonalizedMV("/api/personalized/mv").then((res) => setMVList(res));
+    getPersonalizedMV("/api/personalized/mv").then((res) =>
+      setMVList(res.result)
+    );
   }, [type]);
 
   return (

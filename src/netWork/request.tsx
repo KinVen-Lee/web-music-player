@@ -1709,12 +1709,14 @@ export async function getPersonalizedMV(url: string) {
 
 /**
  * 推荐电台
-说明 : 调用此接口 , 可获取推荐电台
-
-接口地址 : /personalized/djprogram
-
-调用例子 : /personalized/djprogram
+ * 说明 : 调用此接口 , 可获取推荐电台
+ * 接口地址 : /personalized/djprogram
+ * 调用例子 : /personalized/djprogram
  */
+export async function getPersonalizedDjprogram(url: string) {
+  const result = await get(url);
+  return result;
+}
 
 /**
  * 推荐节目

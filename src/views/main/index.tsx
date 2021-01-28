@@ -1,9 +1,7 @@
 import React from "react";
 
 import NavBar from "@component/navbar";
-
 import Banner from "./component/banner";
-import SongRecom from "./component/songRecom";
 import SongListRecom from "./component/songListRecom";
 import AlbumRecom from "./component/albumRecom";
 import TopSong from "./component/topSong";
@@ -49,6 +47,7 @@ const Main = () => {
       <SongListRecom />
       <TopSong />
       <MVRecom />
+      <AlbumRecom />
     </>
   );
 };
