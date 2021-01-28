@@ -15,7 +15,7 @@ export async function getBanner(url: string) {
   const result = await get(url);
   return result;
 }
-export async function getSongListRecom(url: string, params: {}) {
+export async function getSongListRecom(url: string, params = {}) {
   const result = await get(url, params);
   return result.result;
 }
@@ -876,7 +876,7 @@ type: 地区类型 id,对应以下:
 
 调用例子 : /top/song?type=96
  */
-export async function getTopSong(url: string, params: {}) {
+export async function getTopSong(url: string, params = {}) {
   const result = await get(url, params);
   return result.data;
 }
@@ -1677,13 +1677,14 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 /**
  * 推荐 mv
-说明 : 调用此接口 , 可获取推荐 mv
-
-接口地址 : /personalized/mv
-
-调用例子 : /personalized/mv
+ * 说明 : 调用此接口 , 可获取推荐 mv
+ * 接口地址 : /personalized/mv
+ * 调用例子 : /personalized/mv
  */
-
+export async function getPersonalizedMV(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 推荐歌单
 说明 : 调用此接口 , 可获取推荐歌单

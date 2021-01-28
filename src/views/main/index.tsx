@@ -9,6 +9,7 @@ import AlbumRecom from "./component/albumRecom";
 import TopSong from "./component/topSong";
 
 import { NavBarData } from "@component/interface";
+import MVRecom from "./component/mvRecom";
 const Main = () => {
   const NavBarData: NavBarData[] = [
     {
@@ -45,11 +46,9 @@ const Main = () => {
     <>
       <NavBar dataSource={NavBarData} className="top-nav-bar" />
       <Banner />
-      {/* <SongRecom /> */}
       <SongListRecom />
       <TopSong />
-      {/* <AlbumRecom /> */}
-      {/* <TopList /> */}
+      <MVRecom />
     </>
   );
 };
