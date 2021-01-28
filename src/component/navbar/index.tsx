@@ -1,36 +1,35 @@
 import { Menu } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavBarData } from "../interface";
+interface NavBarProps {
+  dataSource?: NavBarData[];
+  className?: string;
+  style?: React.CSSProperties;
+}
 
-const NavBar = () => {
-  const [current, setCurrent] = useState("shouye");
+const NavBar = (props: NavBarProps) => {
+  const { dataSource, className, style } = props;
+
+  const [current, setCurrent] = useState("");
   const handleClick = (e: any) => {
-    console.log("click ", e);
     setCurrent(e.key);
   };
+
+  useEffect(() => {
+    dataSource && setCurrent(dataSource[0].key ?? "");
+  }, []);
+
   return (
-    <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
-      <Menu.Item key="shouye">
-        <span>首页</span>
-      </Menu.Item>
-      <Menu.Item key="geshou">
-        <span>歌手</span>
-      </Menu.Item>
-      <Menu.Item key="xindie">
-        <span>新碟</span>
-      </Menu.Item>
-      <Menu.Item key="排行榜">
-        <span>排行榜</span>
-      </Menu.Item>
-      <Menu.Item key="fenleigedan">
-        <span>分类歌单</span>
-      </Menu.Item>
-      <Menu.Item key="diantai">
-        <span>电台</span>
-      </Menu.Item>
-      <Menu.Item key="MV">
-        <span>MV</span>
-      </Menu.Item>
-    </Menu>
+    <div className={className} style={style}>
+      <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+        {dataSource &&
+          dataSource.map((item) => (
+            <Menu.Item key={item.key}>
+              <span>{item.data}</span>
+            </Menu.Item>
+          ))}
+      </Menu>
+    </div>
   );
 };
 export default NavBar;

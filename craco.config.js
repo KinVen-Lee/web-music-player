@@ -200,18 +200,33 @@ module.exports = {
       ],
       []
     ),
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: {
+              "@primary-color": "#1DA57A",
+              "@link-color": "#1DA57A",
+              "@border-radius-base": "2px",
+            },
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
     // 方案1、配置Antd主题less
-    // {
-    //   plugin: CracoLessPlugin,
-    //   options: {
-    //     lessLoaderOptions: {
-    //       lessOptions: {
-    //         modifyVars: { "@primary-color": "#1DA57A" },
-    //         javascriptEnabled: true,
-    //       },
-    //     },
-    //   },
-    // },
+    {
+      plugin: CracoLessPlugin,
+      options: {
+        lessLoaderOptions: {
+          lessOptions: {
+            modifyVars: { "@primary-color": "#1DA57A" },
+            javascriptEnabled: true,
+          },
+        },
+      },
+    },
     // 方案2、配置Antd主题
     // {
     //   plugin: CracoAntDesignPlugin,

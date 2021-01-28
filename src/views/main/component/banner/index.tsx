@@ -1,6 +1,7 @@
 import { Carousel } from "antd";
 import { useEffect, useState } from "react";
 import { getBanner } from "@netWork/request";
+import "./index.less";
 const Banner = () => {
   const [bannerList, setBannerList] = useState<Array<any>>([]);
   useEffect(() => {

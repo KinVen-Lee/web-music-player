@@ -471,6 +471,8 @@ t:操作,1 为收藏,其他为取消收藏
 
 id : 歌手 id
 
+
+
 接口地址 : /artist/top/song
 
 调用例子 : /artist/top/song?id=6452
@@ -874,7 +876,10 @@ type: 地区类型 id,对应以下:
 
 调用例子 : /top/song?type=96
  */
-
+export async function getTopSong(url: string, params: {}) {
+  const result = await get(url, params);
+  return result.data;
+}
 /**
  * 首页-发现
 说明 : 调用此接口 , 可获取APP首页信息
