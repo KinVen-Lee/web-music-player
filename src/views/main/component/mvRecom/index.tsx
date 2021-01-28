@@ -7,7 +7,6 @@ import "./index.less";
  */
 const MVRecom = () => {
   const [MVList, setMVList] = useState<any>(null);
-  const [startIndex, setStartIndex] = useState<number>(0);
   const [type, setType] = useState<number>(0);
   useEffect(() => {
     getPersonalizedMV("/api/personalized/mv").then((res) =>

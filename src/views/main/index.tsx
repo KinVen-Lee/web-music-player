@@ -8,6 +8,7 @@ import TopSong from "./component/topSong";
 
 import { NavBarData } from "@component/interface";
 import MVRecom from "./component/mvRecom";
+import TopListDetail from "./component/topListDetail";
 const Main = () => {
   const NavBarData: NavBarData[] = [
     {
@@ -48,6 +49,7 @@ const Main = () => {
       <TopSong />
       <MVRecom />
       <AlbumRecom />
+      <TopListDetail/>
     </>
   );
 };

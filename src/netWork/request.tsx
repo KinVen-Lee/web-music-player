@@ -1922,13 +1922,14 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 
 
 /**
  * 所有榜单内容摘要
-说明 : 调用此接口,可获取所有榜单内容摘要
-
-接口地址 : /toplist/detail
-
-调用例子 : /toplist/detail
+ * 说明 : 调用此接口,可获取所有榜单内容摘要
+ * 接口地址 : /toplist/detail
+ * 调用例子 : /toplist/detail
  */
-
+export async function getTopListDetail(url: string) {
+  const result = await get(url);
+  return result;
+}
 /**
  * 歌手榜
 说明 : 调用此接口 , 可获取排行榜中的歌手榜
