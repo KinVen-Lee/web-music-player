@@ -1,14 +1,14 @@
 import React from "react";
 
-import NavBar from "@component/navbar";
-import Banner from "./component/banner";
-import SongListRecom from "./component/songListRecom";
-import AlbumRecom from "./component/albumRecom";
-import TopSong from "./component/topSong";
+import NavBar from "@/component/NavBar";
+import Banner from "./component/Banner";
+import SongListRecom from "./component/SongListRecom";
+import AlbumRecom from "./component/AlbumRecom";
+import TopSong from "./component/TopSong";
 
 import { NavBarData } from "@component/interface";
-import MVRecom from "./component/mvRecom";
-import TopListDetail from "./component/topListDetail";
+import MVRecom from "./component/MVRecom";
+import TopListDetail from "./component/TopListDetail";
 const Main = () => {
   const NavBarData: NavBarData[] = [
     {
@@ -49,7 +49,7 @@ const Main = () => {
       <TopSong />
       <MVRecom />
       <AlbumRecom />
-      <TopListDetail/>
+      <TopListDetail />
     </>
   );
 };

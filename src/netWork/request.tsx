@@ -878,7 +878,7 @@ type: 地区类型 id,对应以下:
  */
 export async function getTopSong(url: string, params = {}) {
   const result = await get(url, params);
-  return result.data;
+  return result;
 }
 /**
  * 首页-发现
@@ -2614,7 +2614,6 @@ export async function getAlbumList(url: string) {
   return result;
 }
 
-
 /**
  * 数字专辑&数字单曲-榜单
 说明 : 调用此接口 ,可获取数字专辑&数字单曲-榜单
@@ -2637,7 +2636,6 @@ export async function getAlbumSongSaleboard(url: string) {
   const result = await get(url);
   return result;
 }
-
 
 /**
  * 数字专辑-语种风格馆
@@ -2703,7 +2701,6 @@ quantity : 购买的数量
 
 调用例子 : /digitalAlbum/ordering?id=86286082&payment=3&quantity=1
  */
-
 
 /**
  * 音乐日历
@@ -2812,22 +2809,19 @@ offset: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)*10, 其中 10 为 
 调用例子 : /yunbei/tasks/expense?limit=1
  */
 
-
-
 /**
  * 关注歌手新歌
  * 说明 :登录后调用此接口可获取关注歌手新歌
  * 可选参数 : limit: 取出评论数量 , 默认为 20
  * before: 上一页数据返回的publishTime的数据
  * 接口地址 : /artist/new/song
- * 调用例子 : /artist/new/song?limit=1 
+ * 调用例子 : /artist/new/song?limit=1
  *           /artist/new/song?limit=1&before=1602777625000
  */
 export async function getArtistNewSong(url: string) {
   const result = await get(url);
   return result;
 }
-
 
 /**
  * 关注歌手新MV

@@ -1,4 +1,4 @@
-import TopMenu from "./component/topMenu";
+import TopMenu from "./component/TopMenu";
 import Main from "./views/main";
 import { Layout } from "antd";
 const { Header, Content, Footer } = Layout;

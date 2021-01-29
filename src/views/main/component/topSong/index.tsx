@@ -2,15 +2,13 @@ import { useEffect, useState } from "react";
 import { getTopSong } from "@netWork/request";
 
 import "./index.less";
-import NavBar from "@/component/navbar";
+import NavBar from "@/component/NavBar";
 import { NavBarData } from "@component/interface";
 const TopSong = () => {
   const [songList, setSongList] = useState<any>(null);
-  const [startIndex, setStartIndex] = useState<number>(0);
-  const [type, setType] = useState<number>(0);
   useEffect(() => {
-    getTopSong("/api/top/song", { type }).then((res) => setSongList(res));
-  }, [type]);
+    getTopSong("/api/top/song", {  }).then((res) => setSongList(res));
+  },[]);
 
   const NavBarData: NavBarData[] = [
     {

@@ -11,9 +11,12 @@ interface NavBarProps {
 const NavBar = (props: NavBarProps) => {
   const { dataSource, className, style } = props;
   const [current, setCurrent] = useState("");
+
   const handleClick = (e: any) => {
     setCurrent(e.key);
+    console.log(e.key);
   };
+
   useEffect(() => {
     dataSource && setCurrent(dataSource[0].key ?? "");
   }, []);
