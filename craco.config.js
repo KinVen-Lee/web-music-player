@@ -32,6 +32,7 @@ module.exports = {
       "@router": pathResolve("src/router"),
       "@utils": pathResolve("src/utils"),
       "@netWork": pathResolve("src/netWork"),
+      "@assets": pathResolve("src/assets"),
     },
     plugins: [
       // webpack构建进度条

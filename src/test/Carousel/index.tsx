@@ -1,6 +1,7 @@
 import { Carousel as AntdCarousel, Radio } from "antd";
 import { Children, useRef, useState } from "react";
 import "./index.less";
+import React from "react";
 interface CarouselProps {
   autoplay?: boolean;
   dotPosition?: "left" | "right" | "bottom" | "top";
@@ -21,10 +22,19 @@ const Carousel = (props: any) => {
   const handleToRight = () => {
     (carouselRef.current as any).next();
   };
+
+  // const renderChild = () => {
+  //   return React.Children.map(children, (child, item) => {
+  //     return React.cloneElement(child);
+  //   });
+  // };
+
   return (
     <div className="carousel-container">
       <AntdCarousel ref={carouselRef} {...setting}>
-        {Children}
+        {props.children}
+        {/* {Children} */}
+        {/* {renderChild()} */}
       </AntdCarousel>
       <div className="toLeft" onClick={handleToLeft}>
         左滑

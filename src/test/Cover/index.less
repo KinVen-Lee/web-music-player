@@ -1,0 +1,80 @@
+.mod-cover {
+  position: relative;
+  height: 86px;
+  width: 86px;
+  overflow: hidden;
+  border-top: 1px solid #f2f2f2;
+  margin: -1px 30px 13px 0;
+  padding-top: 12px;
+  font-size: 14px;
+  overflow: hidden;
+  .song-link {
+    position: relative;
+    float: left;
+    width: 86px;
+    height: 86px;
+    margin-right: 14px;
+    overflow: hidden;
+    &:hover {
+      -webkit-transform: scale(1.07) translateZ(0);
+      -webkit-transition: -webkit-transform 0.75s cubic-bezier(0, 1, 0.75, 1);
+      transform: scale(1.07) translateZ(0);
+      transition: transform 0.75s cubic-bezier(0, 1, 0.75, 1);
+      overflow: hidden;
+    }
+    .song-picture {
+      display: block;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: scale(1) translateZ(0);
+      -webkit-transition: -webkit-transform 0.75s;
+      transform: scale(1) translateZ(0);
+      transition: transform 0.75s;
+      overflow: hidden;
+    }
+    .mod-cover-mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      opacity: 0;
+      filter: alpha(opacity=0);
+      -webkit-transition: opacity 0.5s;
+      transition: opacity 0.5s;
+      &:hover {
+        opacity: 0.2;
+        transition: opacity 0.5s;
+      }
+    }
+    .mod-cover-icon-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -35px;
+      width: 70px;
+      height: 70px;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      -webkit-transform: scale(0.7) translateZ(0);
+      -webkit-transition-property: opacity, -webkit-transform;
+      -webkit-transition-duration: 0.5s;
+      transform: scale(0.7) translateZ(0);
+      transition-property: opacity, transform;
+      transition-duration: 0.5s;
+      zoom: 1;
+    }
+  }
+}
+
+.cover .mod-cover-icon-play:hover,
+.mod-cover-icon-play {
+  background-size: 68%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.cover:hover .mod-cover-icon-play {
+  opacity: 1;
+  filter: none;
+}

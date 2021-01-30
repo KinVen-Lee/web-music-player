@@ -6,8 +6,9 @@
       "@api/*": ["src/api/*"],
       "@views/*": ["src/view/*"],
       "@component/*": ["src/component/*"],
-      "@utils/*":["src/utils/*"],
-      "@netWork/*":["src/netWork/*"],
+      "@utils/*": ["src/utils/*"],
+      "@netWork/*": ["src/netWork/*"],
+      "@assets/*": ["src/assets/*"]
     }
   }
 }
