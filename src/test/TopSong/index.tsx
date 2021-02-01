@@ -5,7 +5,7 @@ import "./index.less";
 import NavBar from "@/component/NavBar";
 import { NavBarData } from "@component/interface";
 import SectionMod from "../SectionMod";
-import _ from "lodash";
+// import _ from "lodash";
 
 const { Meta } = Card;
 
@@ -18,7 +18,8 @@ const TopSong = () => {
   const [type, setType] = useState(0);
   useEffect(() => {
     getTopSong("/api/top/song", {}).then((res) =>
-      setTopSongList(_.chunk(res.data, 9))
+      // setTopSongList(_.chunk(res.data, 9))
+      setTopSongList(res.data)
     );
   }, []);
   const NavBarData: NavBarData[] = [

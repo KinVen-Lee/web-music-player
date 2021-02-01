@@ -1,6 +1,8 @@
 import React from "react";
-import Carousel from "../Carousel";
 import "./index.less";
+import carouselLeft from '@assets/svg/carousel_left.svg'
+import carouselRight from '@assets/svg/carousel_right.svg'
+
 interface SectionModProps {
   className?: string;
   style?: React.CSSProperties;
@@ -22,28 +24,16 @@ const SectionMod = (props: SectionModProps) => {
         </div>
       </div>
       <div className="section-slide">
-        <div className="slide_action slide_action--left">
-          <a
-            href="javascript:;"
-            className="slide_action__btn slide_action__btn--left js_jump"
-            data-p="prev"
-            // tabindex="-1"
-            data-stat="y_new.index.new_song.pager"
-          >
-            <i className="icon_txt">上一页</i>
-            <i className="slide_action__arrow slide_action__arrow--left sprite"></i>
+        <div className="slide-action slide-action-left">
+          <a className="slide-action-btn slide-action-btn-left ">
+            <i className="icon-txt">上一页</i>
+            <img src={carouselLeft} className="slide-action-arrow slide-action-arrow-left"/>
           </a>
         </div>
-        <div className="slide_action slide_action--right">
-          <a
-            href="javascript:;"
-            className="slide_action__btn slide_action__btn--right js_jump"
-            data-p="next"
-            // tabindex="-1"
-            data-stat="y_new.index.new_song.pager"
-          >
-            <i className="icon_txt">下一页</i>
-            <i className="slide_action__arrow slide_action__arrow--right sprite"></i>
+        <div className="slide-action slide-action-right">
+          <a className="slide-action-btn slide-action-btn-right ">
+            <i className="icon-txt">下一页</i>
+            <img src={carouselRight} className="slide-action-arrow slide-action-arrow-right"/>
           </a>
         </div>
       </div>
