@@ -1,13 +1,13 @@
-// import TopMenu from "./component/TopMenu";
+import TopMenu from "./component/TopMenu";
 import Main from "./views/main";
 import { Layout } from "antd";
 const { Header, Content, Footer } = Layout;
 const App = () => {
   return (
     <Layout className="layout">
-      {/* <Header>
+      <Header>
         <TopMenu />
-      </Header> */}
+      </Header>
       <Content>
         <Main />
       </Content>

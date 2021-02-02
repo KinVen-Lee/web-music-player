@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import App from "./App";
-import App from "./test/index";
+import App from "./App";
+// import App from "./test/index";
 import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import "./index.less";

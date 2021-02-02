@@ -233,7 +233,7 @@ export const TopListCard = (props: any) => {
   );
 };
 
-export const SongListCard = () => {
+export const SongListCard = (props: any) => {
   return (
     <div className="songlist-card">
       <div className="songlist-card-cover">
@@ -242,8 +242,8 @@ export const SongListCard = () => {
           className=" js-songlist"
         >
           <img
-            src="//qpic.y.qq.com/music-cover/btpibHqdQFhsNMUQ1YnZNKPdgkDkax1DxhtL4Sc1dRu6QF5UUxl7QPg/300?n=1"
-            alt="谱写solo | 韩永斌歌曲精选集"
+            src={props.picUrl}
+            alt={props.copywriter}
             className="songlist-pic"
           />
           <i className="card-cover-mask"></i>
@@ -256,11 +256,11 @@ export const SongListCard = () => {
             href="https://y.qq.com/n/yqq/playsquare/7571018234.html#stat=y-new.index.playlist.name"
             className="js-songlist"
           >
-            谱写solo | 韩永斌歌曲精选集
+            {props.name}
           </a>
         </span>
       </h4>
-      <div className="playlist-other">播放量：8.2万</div>
+      <div className="playlist-other">播放量：{props.playCount}</div>
     </div>
   );
 };

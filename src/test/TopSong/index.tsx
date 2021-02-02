@@ -10,14 +10,10 @@ import { TopSongCard } from "../Card";
 
 const { Meta } = Card;
 
-const gridStyle: React.CSSProperties = {
-  width: "25%",
-  textAlign: "center",
-};
 const TopSong = () => {
   const [topSongList, setTopSongList] = useState<any>([]);
-  const [type, setType] = useState(0);
-   
+  // const [type, setType] = useState(0);
+
   useEffect(() => {
     getTopSong("/api/top/song", {}).then((res) =>
       setTopSongList(_.chunk(res.data, 9))

@@ -6,8 +6,8 @@ import Cover from "./Cover";
 import SectionMod from "./SectionMod";
 const App = () => {
   // return <SectionMod title='新歌速递'/>;
-
-  return <TopSong />;
+  return <Card />
+  // return <TopSong />;
   // return <Cover albumName="你的终点可以没有我"  className='top-song'/>;
 };
 
