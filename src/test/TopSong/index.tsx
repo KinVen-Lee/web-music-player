@@ -5,7 +5,8 @@ import "./index.less";
 import NavBar from "@/component/NavBar";
 import { NavBarData } from "@component/interface";
 import SectionMod from "../SectionMod";
-// import _ from "lodash";
+import _ from "lodash";
+import { TopSongCard } from "../Card";
 
 const { Meta } = Card;
 
@@ -16,10 +17,10 @@ const gridStyle: React.CSSProperties = {
 const TopSong = () => {
   const [topSongList, setTopSongList] = useState<any>([]);
   const [type, setType] = useState(0);
+   
   useEffect(() => {
     getTopSong("/api/top/song", {}).then((res) =>
-      // setTopSongList(_.chunk(res.data, 9))
-      setTopSongList(res.data)
+      setTopSongList(_.chunk(res.data, 9))
     );
   }, []);
   const NavBarData: NavBarData[] = [
@@ -44,41 +45,25 @@ const TopSong = () => {
       key: "Korea",
     },
   ];
-  const renderNavBar = useMemo(() => {
+  const renderNavBar = () => {
     return (
       <NavBar dataSource={NavBarData} className="top-song-nav-bar"></NavBar>
     );
-  }, []);
-  const renderCarousel = useMemo(() => {
-    return (
-      <div className="top-song-carousel">
-        <>
-          {topSongList &&
-            topSongList.map((items: any[], index: number) => {
-              return (
-                <div key={index}>
-                  {items.map((item: any, index: any) => {
-                    return (
-                      <Card.Grid
-                        key={item.id}
-                        hoverable={false}
-                        style={gridStyle}
-                      >
-                        <Meta
-                          avatar={<Avatar src={item.album.blurPicUrl} />}
-                          title={item.album.name}
-                          description={item.album.artists[0].name}
-                        />
-                      </Card.Grid>
-                    );
-                  })}
-                </div>
-              );
+  }
+  const renderCarousel = () => {
+    return topSongList &&
+      topSongList.map((items: any, index: number) => {
+        return (
+          <div key={index}>
+            {items.map((item: any, index: any) => {
+              return (<TopSongCard data={item} />);
             })}
-        </>
-      </div>
-    );
-  }, []);
+          </div>
+        );
+      })
+
+
+  }
   return (
     <>
       <div className="top-song">
@@ -87,10 +72,6 @@ const TopSong = () => {
           renderNavBar={renderNavBar}
           renderCarousel={renderCarousel}
         />
-        {/* <div className="title">
-          <h2>新歌速递</h2>
-          <NavBar dataSource={NavBarData} className="top-song-nav-bar"></NavBar>
-        </div> */}
       </div>
     </>
   );

@@ -35,13 +35,19 @@ const Carousel = (props: any) => {
         {props.children}
         {/* {Children} */}
         {/* {renderChild()} */}
+        {/* <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div> */}
+
       </AntdCarousel>
-      <div className="toLeft" onClick={handleToLeft}>
+      {/* <div className="toLeft" onClick={handleToLeft}>
         左滑
       </div>
       <div className="toRight" onClick={handleToRight}>
         右滑
-      </div>
+      </div> */}
     </div>
   );
 };

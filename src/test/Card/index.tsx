@@ -5,28 +5,28 @@ interface TopSongCardProps {
   topSongName?: string;
   artistName?: string;
   duration?: number;
+  data?: any
 }
 
 export const TopSongCard = (props: TopSongCardProps) => {
-  const {} = props;
+  const { data } = props;
   return (
     <>
       <div className="top-song-card">
         <div className="top-song-card-cover">
           <a
             href="https://y.qq.com/n/yqq/album/002lezHb2umULH.html"
-            title="你的终点可以没有我"
-            data-albummid="002lezHb2umULH"
-            data-albumid="17238311"
+            title={data.name}
             className="album_name songlist__link mod_cover"
           >
             <img
               className="songlist__pic"
-              src="//y.gtimg.cn/music/photo_new/T002R90x90M000002lezHb2umULH_1.jpg?max_age=2592000"
+              src={data.album.picUrl}
               data-original="//y.gtimg.cn/music/photo_new/T002R90x90M000002lezHb2umULH_1.jpg?max_age=2592000"
               //   onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album_300.png?max_age=31536000';this.onerror=null;"
               style={{ display: "block", visibility: "visible" }}
             />
+          
             <i className="mod_cover__mask"></i>
             <i
               className="mod_cover__icon_play js_play"
@@ -34,13 +34,6 @@ export const TopSongCard = (props: TopSongCardProps) => {
             ></i>
           </a>
         </div>
-       
-       
-       
-       
-       
-       
-       
         <div className="top-song-card-content">
           <h3 className="song-title">
             <a
@@ -50,7 +43,7 @@ export const TopSongCard = (props: TopSongCardProps) => {
               className="song-title-container"
               title="你的终点可以没有我 《风起霓裳》电视剧插曲"
             >
-              你的终点可以没有我
+              {data.name}
               <span className="song-txt">《风起霓裳》电视剧插曲</span>
             </a>
           </h3>
@@ -64,7 +57,7 @@ export const TopSongCard = (props: TopSongCardProps) => {
               title="陆虎"
               className="singer-name"
             >
-              陆虎
+              {data.artists[0].name}
             </a>
           </p>
         </div>
@@ -86,7 +79,7 @@ export const MVCard = (props: any) => {
             data-stat="y_new.index.mv.play_btn"
             data-vid="r0035awn0v9"
             data-id="1696487"
-            // hidefocus="true"
+          // hidefocus="true"
           >
             <img
               className="mv_list__pic"

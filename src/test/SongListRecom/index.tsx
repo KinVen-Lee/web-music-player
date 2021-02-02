@@ -8,6 +8,7 @@ const { Meta } = Card;
 const SongListRecom = () => {
   const [songList, setSongList] = useState<any>(null);
   const [startIndex, setStartIndex] = useState<number>(0);
+
   useEffect(() => {
     getSongListRecom("/api/personalized?limit=5", {}).then((res) =>
       setSongList(res)
@@ -15,8 +16,8 @@ const SongListRecom = () => {
   }, []);
   return (
     <div className="songListRecommendation">
-      <SectionMod title={`推 荐 歌 单`}/>
-      
+      <SectionMod title={`推 荐 歌 单`} />
+
       {/* <h2>推荐歌单</h2>
       <div className="site-card-wrapper">
         <Row gutter={20}>
