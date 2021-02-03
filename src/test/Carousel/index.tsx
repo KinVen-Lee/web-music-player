@@ -1,53 +1,98 @@
-import { Carousel as AntdCarousel, Radio } from "antd";
-import { Children, useRef, useState } from "react";
-import "./index.less";
+// import "./index.less";
 import React from "react";
-interface CarouselProps {
-  autoplay?: boolean;
-  dotPosition?: "left" | "right" | "bottom" | "top";
-  dots?: boolean | { className?: string };
-  easing?: string;
-  effect?: "scrollx" | "fade"; //scrollx | fade
-  afterChange?: (currentSlide: number) => void;
-  beforeChange?: (from: any, to: any) => void;
-  contentStyle?: React.CSSProperties;
-}
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Keyboard,
+  Virtual,
+  Parallax,
+  Mousewheel,
+  Zoom,
+  Lazy,
+  Controller,
+  HashNavigation,
+  History,
+  Autoplay,
+  EffectCoverflow,
+  EffectCube,
+  EffectFade,
+  EffectFlip,
+  Thumbs,
+} from "swiper";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/swiper.less";
+import "swiper/components/navigation/navigation.less";
+import "swiper/components/pagination/pagination.less";
+import "swiper/components/scrollbar/scrollbar.less";
+// import "swiper/components/a11y/a11y.less";
+// import "swiper/components/controller/controller.less";
+// import "swiper/components/effect-coverflow/effect-coverflow.less";
+// import "swiper/components / effect - cube / effect - cube.less";
+// import "swiper/components / effect - fade / effect - fade.less";
+// import "swiper/components / effect - flip / effect - flip.less";
+// import "swiper/components / lazy / lazy.less";
+// import "swiper/components / thumbs / thumbs.less";
+// import "swiper/components / zoom / zoom.less";
+
+SwiperCore.use([
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Keyboard,
+  Virtual,
+  Parallax,
+  Mousewheel,
+  Zoom,
+  Lazy,
+  Controller,
+  HashNavigation,
+  History,
+  Autoplay,
+  EffectCoverflow,
+  EffectCube,
+  EffectFade,
+  EffectFlip,
+  Thumbs,
+]);
 const Carousel = (props: any) => {
-  const { ...setting } = props;
-  const carouselRef = useRef(null);
-  const handleToLeft = () => {
-    (carouselRef.current as any).prev();
-  };
-  const handleToRight = () => {
-    (carouselRef.current as any).next();
-  };
-
-  // const renderChild = () => {
-  //   return React.Children.map(children, (child, item) => {
-  //     return React.cloneElement(child);
-  //   });
-  // };
-
   return (
     <div className="carousel-container">
-      <AntdCarousel ref={carouselRef} {...setting}>
-        {props.children}
-        {/* {Children} */}
-        {/* {renderChild()} */}
-        {/* <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div> */}
-
-      </AntdCarousel>
-      {/* <div className="toLeft" onClick={handleToLeft}>
-        左滑
-      </div>
-      <div className="toRight" onClick={handleToRight}>
-        右滑
-      </div> */}
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={5}
+        navigation
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{ clickable: true }}
+        // scrollbar={{ draggable: true }}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        style={{ height: "400px" }}
+      >
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+        <SwiperSlide>Slide 4</SwiperSlide>
+        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide>Slide 6</SwiperSlide>
+        ...
+      </Swiper>
     </div>
   );
 };
