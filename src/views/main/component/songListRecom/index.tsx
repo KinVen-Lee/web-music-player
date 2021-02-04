@@ -4,26 +4,44 @@ import "./index.less";
 import _ from "lodash";
 import SectionMod from "../SectionMod";
 import { SongListCard } from "../Card";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.less";
+import "swiper/components/navigation/navigation.less";
+import "swiper/components/pagination/pagination.less";
+import "./index.less";
 
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 const SongListRecom = () => {
   const [songList, setSongList] = useState<any>(null);
   useEffect(() => {
-    getSongListRecom("/api/personalized", {}).then((res) =>
-      setSongList(_.chunk(res, 5))
-    );
+    getSongListRecom("/api/personalized", {}).then((res) => setSongList(res));
   }, []);
   return (
     <SectionMod title="歌单推荐" className="songListRecommendation">
-      {songList &&
-        songList.map((items: any, index: number) => {
-          return (
-            <div className="songlist-carousel-item">
-              {items.map((item: any) => {
-                return <SongListCard />;
-              })}
-            </div>
-          );
-        })}
+      <Swiper
+        loop={true}
+        spaceBetween={50}
+        slidesPerView={5}
+        slidesPerGroup={5}
+        navigation
+        // autoplay={{
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        // }}
+        pagination={{ clickable: true }}
+      >
+        {songList &&
+          songList.map((songListItem: any, index: number) => (
+            <SwiperSlide key={songListItem.targetId} virtualIndex={index}>
+              <div className="banner-box">
+                <a href="0" className="banner-link">
+                  <img src={songListItem.imageUrl} className="banner-pic" />
+                </a>
+              </div>
+            </SwiperSlide>
+          ))}
+      </Swiper>
     </SectionMod>
   );
 };

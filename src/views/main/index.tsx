@@ -46,10 +46,10 @@ const Main = () => {
       <NavBar dataSource={NavBarData} className="top-nav-bar" />
       <Banner />
       <SongListRecom />
-      <TopSong />
-      <MVRecom />
-      <AlbumRecom />
-      <TopListDetail />
+      {/* <TopSong /> */}
+      {/* <MVRecom /> */}
+      {/* <AlbumRecom /> */}
+      {/* <TopListDetail /> */}
     </>
   );
 };
