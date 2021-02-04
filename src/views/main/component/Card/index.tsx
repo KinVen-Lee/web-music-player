@@ -15,45 +15,40 @@ export const TopSongCard = (props: TopSongCardProps) => {
       <div className="top-song-card">
         <div className="top-song-card-cover">
           <a
-            href="https://y.qq.com/n/yqq/album/002lezHb2umULH.html"
+            // href="https://y.qq.com/n/yqq/album/002lezHb2umULH.html"
             title={data.name}
             className="album-name songlist-link mod-cover"
           >
             <img
               className="songlist-pic"
               src={data.album.picUrl}
-              data-original="//y.gtimg.cn/music/photo-new/T002R90x90M000002lezHb2umULH-1.jpg?max-age=2592000"
-              //   onerror="this.src='//y.gtimg.cn/mediastyle/global/img/album-300.png?max-age=31536000';this.onerror=null;"
               style={{ display: "block", visibility: "visible" }}
             />
 
             <i className="mod-cover-mask"></i>
-            <i
-              className="mod-cover-icon-play js-play"
-              data-stat="y-new.index.new-song.play-btn"
-            ></i>
+            <i className="mod-cover-icon-play js-play"></i>
           </a>
         </div>
         <div className="top-song-card-content">
           <h3 className="song-title">
             <a
-              href="https://y.qq.com/n/yqq/song/001iOWlr21sMQ5.html#stat=y-new.index.new-song.songname"
+              // href="https://y.qq.com/n/yqq/song/001iOWlr21sMQ5.html#stat=y-new.index.new-song.songname"
               //   onclick="setStatCookie&amp;&amp;setStatCookie();"
               //   data-stat="y-new.index.new-song.songname"
               className="song-title-container"
-              title="你的终点可以没有我 《风起霓裳》电视剧插曲"
+              // title="你的终点可以没有我 《风起霓裳》电视剧插曲"
             >
               {data.name}
-              <span className="song-txt">《风起霓裳》电视剧插曲</span>
+              <span className="song-txt"></span>
             </a>
           </h3>
           <p className="song-author" title="陆虎">
             <a
-              href="https://y.qq.com/n/yqq/singer/004gbMvP356XaI.html#stat=y-new.index.new-song.singername"
+              // href="https://y.qq.com/n/yqq/singer/004gbMvP356XaI.html#stat=y-new.index.new-song.singername"
               //   onclick="setStatCookie&amp;&amp;setStatCookie();"
-              data-stat="y-new.index.new-song.singername"
-              data-singermid="004gbMvP356XaI"
-              data-singerid="11449"
+              // data-stat="y-new.index.new-song.singername"
+              // data-singermid="004gbMvP356XaI"
+              // data-singerid="11449"
               title="陆虎"
               className="singer-name"
             >
@@ -130,6 +125,7 @@ export const MVCard = (props: any) => {
 };
 
 export const TopListCard = (props: any) => {
+  const { data } = props;
   return (
     <>
       <div
@@ -152,81 +148,37 @@ export const TopListCard = (props: any) => {
             data-stat="y-new.index.toplist.detail.26"
             className="toplist-title-content"
           >
-            热歌
+            {data.name}
           </a>
         </h3>
         <ul className="toplist-card-songlist">
-          <li className="toplist-song">
-            <div className="toplist-number">1</div>
-            <div className="toplist-songname">
-              <a
-                href="https://y.qq.com/n/yqq/song/293695482-num.html#stat=y-new.index.toplist.songname"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                className="js-song"
-                data-id="293695482"
-                data-stat="y-new.index.toplist.songname"
-              >
-                星辰大海
-              </a>
-            </div>
-            <div className="toplist-artist">
-              <a
-                href="https://y.qq.com/n/yqq/singer/000oCQfT3kdonw.html#stat=y-new.index.toplist.singername"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                data-stat="y-new.index.toplist.singername"
-              >
-                黄霄雲
-              </a>
-            </div>
-          </li>
-
-          <li className="toplist-song">
-            <div className="toplist-number">2</div>
-            <div className="toplist-songname">
-              <a
-                href="https://y.qq.com/n/yqq/song/292476167-num.html#stat=y-new.index.toplist.songname"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                className="js-song"
-                data-id="292476167"
-                data-stat="y-new.index.toplist.songname"
-              >
-                千千万万
-              </a>
-            </div>
-            <div className="toplist-artist">
-              <a
-                href="https://y.qq.com/n/yqq/singer/000HvL7S10jB3X.html#stat=y-new.index.toplist.singername"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                data-stat="y-new.index.toplist.singername"
-              >
-                深海鱼子酱
-              </a>
-            </div>
-          </li>
-
-          <li className="toplist-song">
-            <div className="toplist-number">3</div>
-            <div className="toplist-songname">
-              <a
-                href="https://y.qq.com/n/yqq/song/291911135-num.html#stat=y-new.index.toplist.songname"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                className="js-song"
-                data-id="291911135"
-                data-stat="y-new.index.toplist.songname"
-              >
-                白月光与朱砂痣
-              </a>
-            </div>
-            <div className="toplist-artist">
-              <a
-                href="https://y.qq.com/n/yqq/singer/002sT7040IAT6z.html#stat=y-new.index.toplist.singername"
-                // onclick="setStatCookie&amp;&amp;setStatCookie();"
-                data-stat="y-new.index.toplist.singername"
-              >
-                大籽
-              </a>
-            </div>
-          </li>
+          {data &&
+            data.tracks &&
+            data.tracks.map((songItem: any, index: number) => (
+              <li key={index} className="toplist-song">
+                <div className="toplist-number">1</div>
+                <div className="toplist-songname">
+                  <a
+                    // href="https://y.qq.com/n/yqq/song/293695482-num.html#stat=y-new.index.toplist.songname"
+                    // onclick="setStatCookie&amp;&amp;setStatCookie();"
+                    className="js-song"
+                    // data-id="293695482"
+                    // data-stat="y-new.index.toplist.songname"
+                  >
+                    {songItem.first}
+                  </a>
+                </div>
+                <div className="toplist-artist">
+                  <a
+                  // href="https://y.qq.com/n/yqq/singer/000oCQfT3kdonw.html#stat=y-new.index.toplist.singername"
+                  // onclick="setStatCookie&amp;&amp;setStatCookie();"
+                  // data-stat="y-new.index.toplist.singername"
+                  >
+                    {songItem.second}
+                  </a>
+                </div>
+              </li>
+            ))}
         </ul>
       </div>
     </>
@@ -234,16 +186,14 @@ export const TopListCard = (props: any) => {
 };
 
 export const SongListCard = (props: any) => {
+  const { data } = props;
   return (
     <div className="songlist-card">
       <div className="songlist-card-cover">
-        <a
-          href="https://y.qq.com/n/yqq/playsquare/7571018234.html#stat=y-new.index.playlist.pic "
-          className=" js-songlist"
-        >
+        <a href="" className=" js-songlist">
           <img
-            src={props.picUrl}
-            alt={props.copywriter}
+            src={data.picUrl}
+            alt={data.copywriter}
             className="songlist-pic"
           />
           <i className="card-cover-mask"></i>
@@ -256,11 +206,11 @@ export const SongListCard = (props: any) => {
             href="https://y.qq.com/n/yqq/playsquare/7571018234.html#stat=y-new.index.playlist.name"
             className="js-songlist"
           >
-            {props.name}
+            {data.name}
           </a>
         </span>
       </h4>
-      <div className="playlist-other">播放量：{props.playCount}</div>
+      <div className="songlist-palycount">播放量：{data.playCount}</div>
     </div>
   );
 };

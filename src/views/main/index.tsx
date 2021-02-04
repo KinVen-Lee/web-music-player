@@ -44,12 +44,13 @@ const Main = () => {
   return (
     <>
       <NavBar dataSource={NavBarData} className="top-nav-bar" />
-      <Banner />
-      <SongListRecom />
+      {/* <Banner /> */}
+      {/* <SongListRecom /> */}
       {/* <TopSong /> */}
       {/* <MVRecom /> */}
       {/* <AlbumRecom /> */}
       {/* <TopListDetail /> */}
+      {/* <NavBar /> */}
     </>
   );
 };

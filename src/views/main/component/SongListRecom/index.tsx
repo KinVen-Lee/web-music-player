@@ -18,10 +18,14 @@ const SongListRecom = () => {
     getSongListRecom("/api/personalized", {}).then((res) => setSongList(res));
   }, []);
   return (
-    <SectionMod title="歌单推荐" className="songListRecommendation">
+    <SectionMod
+      title="歌单推荐"
+      className="songListRecommendation"
+      style={{ transform: "translate3d(0, 0, 0)" }}
+    >
       <Swiper
         loop={true}
-        spaceBetween={50}
+        spaceBetween={10}
         slidesPerView={5}
         slidesPerGroup={5}
         navigation
@@ -30,15 +34,12 @@ const SongListRecom = () => {
         //   disableOnInteraction: false,
         // }}
         pagination={{ clickable: true }}
+        className="songList-swiper"
       >
         {songList &&
           songList.map((songListItem: any, index: number) => (
             <SwiperSlide key={songListItem.targetId} virtualIndex={index}>
-              <div className="banner-box">
-                <a href="0" className="banner-link">
-                  <img src={songListItem.imageUrl} className="banner-pic" />
-                </a>
-              </div>
+              <SongListCard data={songListItem} />
             </SwiperSlide>
           ))}
       </Swiper>

@@ -14,10 +14,10 @@ interface SectionModProps {
 }
 
 const SectionMod = (props: SectionModProps) => {
-  const { className, title, renderNavBar, renderCarousel } = props;
+  const { className, title, renderNavBar, renderCarousel, style } = props;
 
   return (
-    <div className={`mod-section ${className ?? ""}`}>
+    <div className={`mod-section ${className ?? ""}`} style={style}>
       <div className="section-content">
         {title && <div className="section-title">{title}</div>}
         {renderNavBar && (
