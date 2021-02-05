@@ -47,10 +47,10 @@ const TopSong = () => {
 
   return (
     <SectionMod
-      // renderNavBar={renderNavBar}
-      // title="歌单推荐"
-      className="songListRecommendation"
-      style={{ transform: "translate3d(0, 0, 0)" }}
+      renderNavBar={renderNavBar}
+      title="新歌速递"
+      className="topsong-box"
+      style={{ transform: "translate3d(0, 0, 0)", marginTop: "20px" }}
     >
       <Swiper
         // loop={true}
@@ -65,14 +65,13 @@ const TopSong = () => {
         // }}
         pagination={{ clickable: true }}
         className="topSongList-swiper"
-        style={{ width: "100%", height: "500px" }}
+        style={{ width: "100%", height: "100%" }}
       >
         {topSongList &&
           topSongList.map((topSongListItem: any, index: number) => (
             <SwiperSlide
               key={topSongListItem.id}
               virtualIndex={index}
-              style={{ height: "150px" }}
             >
               <TopSongCard data={topSongListItem} />
             </SwiperSlide>

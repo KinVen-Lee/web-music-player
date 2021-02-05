@@ -1,6 +1,6 @@
 .top-song-card {
-  height: 86px;
-  // width: 30%;
+  height: 100px;
+  width: 380px;
   display: inline-block;
   border-top: 1px solid #f2f2f2;
   margin: -1px 30px 13px 0;
@@ -21,6 +21,7 @@
   }
 
   .top-song-card-content {
+    height: 86px;
     .song-title {
       font-size: 14px;
       padding: 21px 0 2px;
@@ -51,9 +52,9 @@
 
   .top-song-card-time {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    line-height: 86px;
+    right: 10px;
+    top:0;
+    line-height: 100px;
     color: #999;
   }
 }
@@ -201,15 +202,15 @@
 }
 
 .songlist-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  width: 224px;
+  height: 284px;
   .songlist-card-cover {
     position: relative;
     display: block;
     overflow: hidden;
-    padding-top: 100%;
+    // padding-top: 100%;
+    width: 100%;
+    height: 224px;
     margin-bottom: 15px;
     .js-songlist {
       .songlist-pic{
