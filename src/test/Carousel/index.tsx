@@ -25,9 +25,9 @@ import SwiperCore, {
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/swiper.less";
-import "swiper/components/navigation/navigation.less";
-import "swiper/components/pagination/pagination.less";
+import "@/views/main/component/Recommend/node_modules/swiper/swiper.less";
+import "@/views/main/component/Recommend/node_modules/swiper/components/navigation/navigation.less";
+import "@/views/main/component/Recommend/node_modules/swiper/components/pagination/pagination.less";
 import "swiper/components/scrollbar/scrollbar.less";
 // import "swiper/components/a11y/a11y.less";
 // import "swiper/components/controller/controller.less";

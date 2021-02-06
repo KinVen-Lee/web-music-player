@@ -1,7 +1,6 @@
 .mod-section {
   position: relative;
   // margin: 0 50px;
-
   .section-content {
     // height: 400px;
     // background: green;
@@ -17,66 +16,64 @@
       text-align: center;
       font-weight: bold;
       margin-top: 50px;
-      // width: 196px;
-      // height: 40px;
+      margin-bottom: 24px;
       letter-spacing: 4px;
-      // color: rgba(56, 56, 56, 1);
-      // font-size: 30px;
-      // line-height: 150%;
-      // text-align: center;
-      // font-weight: bold;
     }
 
     .section-nav-bar {
       width: 100%;
+      margin-bottom: 28px;
     }
 
     .section-carousel {
       width: 100%;
       flex: 1;
-    }
-  }
-
-  .section-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-
-    .slide-action-left {
-      left: 0;
-
-      .slide-action-btn-left {
-        left: 0;
-        // transform: translateX(-100%);
-
-        .icon-txt {
-          font: 0/0 a;
-        }
-
-        .slide-action-arrow-left {
-          left: 29px;
-          // background-position: ;
-        }
+      position: relative;
+      .carousel-content {
+        margin: 0 100px;
       }
-    }
+      .section-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
 
-    .slide-action-right {
-      right: 0;
+        .slide-action-left {
+          left: 0;
 
-      .slide-action-btn-right {
-        right: 0;
-        // transform: translateX(100%);
+          .slide-action-btn-left {
+            left: 0;
+            // transform: translateX(-100%);
 
-        .icon-txt {
-          font: 0/0 a;
+            .icon-txt {
+              font: 0/0 a;
+            }
+
+            .slide-action-arrow-left {
+              left: 29px;
+              // background-position: ;
+            }
+          }
         }
 
-        .slide-action-arrow-right {
-          right: 29px;
-          // background-position: ;
+        .slide-action-right {
+          right: 0;
+
+          .slide-action-btn-right {
+            right: 0;
+            // transform: translateX(100%);
+
+            .icon-txt {
+              font: 0/0 a;
+            }
+
+            .slide-action-arrow-right {
+              right: 29px;
+              // background-position: ;
+            }
+          }
         }
       }
     }

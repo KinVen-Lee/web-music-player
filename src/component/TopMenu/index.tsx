@@ -1,9 +1,9 @@
 import { Menu, Input, Layout } from "antd";
 import { useState } from "react";
 const { Search } = Input;
-const TopMenu = () => {
+const TopMenu = (props: any) => {
   const [current, setCurrent] = useState("musicLib");
-
+  // const { customFunction } = props;
   const handleClick = (e: any) => {
     setCurrent(e.key);
   };

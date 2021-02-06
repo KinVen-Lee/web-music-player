@@ -15,8 +15,8 @@ export async function getBanner(url: string) {
   const result = await get(url);
   return result;
 }
-export async function getSongListRecom(url: string, params = {}) {
-  const result = await get(url, params);
+export async function getSongListRecom(params = { limit: 30 }) {
+  const result = await get("/api/personalized", params);
   return result.result;
 }
 
@@ -876,8 +876,8 @@ type: 地区类型 id,对应以下:
 
 调用例子 : /top/song?type=96
  */
-export async function getTopSong(url: string, params = {}) {
-  const result = await get(url, params);
+export async function getTopSong(params = { type: 0 }) {
+  const result = await get("/api/top/song", params);
   return result;
 }
 /**
@@ -1651,28 +1651,23 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*50, 其中 50 为 limit 
 
 /**
  * 最新 mv
-说明 : 调用此接口 , 可获取最新 mv
-
-可选参数 : area: 地区,可选值为全部,内地,港台,欧美,日本,韩国,不填则为全部
-
-可选参数 : limit: 取出数量 , 默认为 30
-
-接口地址 : /mv/first
-
-调用例子 : /mv/first?limit=10
+ * 说明 : 调用此接口 , 可获取最新 mv
+ * 可选参数 : area: 地区,可选值为全部,内地,港台,欧美,日本,韩国,不填则为全部
+ * 可选参数 : limit: 取出数量 , 默认为 30
+ * 接口地址 : /mv/first
+ * 调用例子 : /mv/first?limit=10
  */
-
+export async function getFirstMV(params: { area?: string; limit?: string }) {
+  const result = await get("/api/mv/first", params);
+  return result;
+}
 /**
  * 网易出品mv
-说明 : 调用此接口 , 可获取网易出品 mv
-
-可选参数 : limit: 取出数量 , 默认为 30
-
-offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 的值 , 默认 为 0
-
-接口地址 : /mv/exclusive/rcmd
-
-调用例子 : /mv/exclusive/rcmd?limit=10
+ * 说明 : 调用此接口 , 可获取网易出品 mv
+ * 可选参数 : limit: 取出数量 , 默认为 30
+ * offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*30, 其中 30 为 limit 的值 , 默认 为 0
+ * 接口地址 : /mv/exclusive/rcmd
+ * 调用例子 : /mv/exclusive/rcmd?limit=10
  */
 
 /**
@@ -1698,23 +1693,23 @@ export async function getPersonalizedMV(url: string) {
 
 /**
  * 推荐新音乐
-说明 : 调用此接口 , 可获取推荐新音乐
-
-可选参数 : limit: 取出数量 , 默认为 10 (不支持 offset)
-
-接口地址 : /personalized/newsong
-
-调用例子 : /personalized/newsong
+ * 说明 : 调用此接口 , 可获取推荐新音乐
+ * 可选参数 : limit: 取出数量 , 默认为 10 (不支持 offset)
+ * 接口地址 : /personalized/newsong
+ * 调用例子 : /personalized/newsong
  */
-
+export async function getPersonalizedNewSong(params = { limit: 10 }) {
+  const result = await get("/api/personalized/newsong", params);
+  return result;
+}
 /**
  * 推荐电台
  * 说明 : 调用此接口 , 可获取推荐电台
  * 接口地址 : /personalized/djprogram
  * 调用例子 : /personalized/djprogram
  */
-export async function getPersonalizedDjprogram(url: string) {
-  const result = await get(url);
+export async function getPersonalizedDjprogram() {
+  const result = await get("/api/personalized/djprogram");
   return result;
 }
 

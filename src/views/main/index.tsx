@@ -2,12 +2,12 @@ import React from "react";
 
 import NavBar from "@/component/NavBar";
 import Banner from "./component/Banner";
-import SongListRecom from "./component/SongListRecom";
+import Recommend from "./component/Recommend";
 import AlbumRecom from "./component/AlbumRecom";
 import TopSong from "./component/TopSong";
 
 import { NavBarData } from "@component/interface";
-import MVRecom from "./component/MVRecom";
+import FirstMV from "./component/FirstMV";
 import TopListDetail from "./component/TopListDetail";
 const Main = () => {
   const NavBarData: NavBarData[] = [
@@ -45,12 +45,13 @@ const Main = () => {
     <>
       {/* <NavBar dataSource={NavBarData} className="top-nav-bar" /> */}
 
-      <SongListRecom />
+      <Recommend />
       <TopSong />
-      {/* <Banner /> */}
-      {/* <MVRecom /> */}
+      <Banner />
+
       {/* <AlbumRecom /> */}
-      {/* <TopListDetail /> */}
+      <TopListDetail />
+      <FirstMV />
       {/* <NavBar /> */}
     </>
   );

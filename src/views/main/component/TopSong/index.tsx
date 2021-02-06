@@ -4,19 +4,15 @@ import { getTopSong } from "@netWork/request";
 import React, { useEffect, useState } from "react";
 import SectionMod from "../SectionMod";
 import "./index.less";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.less";
-import "swiper/components/navigation/navigation.less";
-import "swiper/components/pagination/pagination.less";
-import "./index.less";
-import { TopSongCard } from "../Card";
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+import _ from "lodash";
+import { TopSongCard } from "./topSongCard";
+// SwiperCore.use([Navigation, Pagination, Autoplay]);
 const TopSong = () => {
   const [topSongList, setTopSongList] = useState<any>(null);
+  const [type, setType] = useState(0);
   useEffect(() => {
-    getTopSong("/api/top/song", {}).then((res) => setTopSongList(res.data));
-  }, []);
+    getTopSong({ type }).then((res) => setTopSongList(_.chunk(res.data, 9)));
+  }, [type]);
 
   const NavBarData: NavBarData[] = [
     {
@@ -40,9 +36,34 @@ const TopSong = () => {
       key: "Korea",
     },
   ];
-
+  const changeCurrentActive = (active: string) => {
+    switch (active) {
+      case "All":
+        setType(0);
+        break;
+      case "Chinese":
+        setType(7);
+        break;
+      case "EuropeAndAmerica":
+        setType(96);
+        break;
+      case "Japan":
+        setType(8);
+        break;
+      case "Korea":
+        setType(16);
+        break;
+      default:
+        setType(0);
+        break;
+    }
+  };
   const renderNavBar = () => (
-    <NavBar dataSource={NavBarData} className="top-song-nav-bar"></NavBar>
+    <NavBar
+      dataSource={NavBarData}
+      className="top-song-nav-bar"
+      customFunction={changeCurrentActive}
+    ></NavBar>
   );
 
   return (
@@ -50,33 +71,22 @@ const TopSong = () => {
       renderNavBar={renderNavBar}
       title="新歌速递"
       className="topsong-box"
-      style={{ transform: "translate3d(0, 0, 0)", marginTop: "20px" }}
+      style={{ transform: "translate3d(0, 0, 0)" }}
     >
-      <Swiper
-        // loop={true}
-        // spaceBetween={5}
-        slidesPerView={3}
-        slidesPerGroup={3}
-        slidesPerColumn={3}
-        navigation
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
-        pagination={{ clickable: true }}
-        className="topSongList-swiper"
-        style={{ width: "100%", height: "100%" }}
-      >
-        {topSongList &&
-          topSongList.map((topSongListItem: any, index: number) => (
-            <SwiperSlide
-              key={topSongListItem.id}
-              virtualIndex={index}
-            >
-              <TopSongCard data={topSongListItem} />
-            </SwiperSlide>
-          ))}
-      </Swiper>
+      {topSongList &&
+        topSongList.map((items: any, index: number) => {
+          return (
+            <div key={index} className="div">
+              <div
+                className={`carousel-item carousel-item${index} topsong-carousel`}
+              >
+                {items.map((topSongItem: any) => (
+                  <TopSongCard key={topSongItem.id} data={topSongItem} />
+                ))}
+              </div>
+            </div>
+          );
+        })}
     </SectionMod>
   );
 };
