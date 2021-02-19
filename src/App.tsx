@@ -1,5 +1,7 @@
 import TopMenu from "./component/TopMenu";
-import Main from "./views/main";
+// import Main from "./views/main";
+import Singer from "./views/singer";
+import PlayList from './views/playList'
 import { Layout } from "antd";
 const { Header, Content, Footer } = Layout;
 const App = () => {
@@ -9,7 +11,7 @@ const App = () => {
         <TopMenu />
       </Header> */}
       <Content>
-        <Main />
+        <PlayList />
       </Content>
       {/* <Footer> */}
 

@@ -421,33 +421,37 @@ lasttime : 返回数据的 lasttime ,默认-1,传入上一次返回结果的 las
 
 /**
  * 歌手分类列表
-说明 : 调用此接口,可获取歌手分类列表
-
-可选参数 :
-
-limit : 返回数量 , 默认为 30
-
-offset : 偏移数量，用于分页 , 如 : 如 :( 页数 -1)*30, 其中 30 为 limit 的值 , 默认为 0 initial: 按首字母索引查找参数,如 /artist/list?type=1&area=96&initial=b 返回内容将以 name 字段开头为 b 或者拼音开头为 b 为顺序排列, 热门传-1,#传0
-
-type 取值:
-
--1:全部
-1:男歌手
-2:女歌手
-3:乐队
-area 取值:
-
--1:全部
-7华语
-96欧美
-8:日本
-16韩国
-0:其他
-接口地址 : /artist/list
-
-调用例子 : /artist/list?type=1&area=96&initial=b /artist/list?type=2&area=2&initial=b
+ * 说明 : 调用此接口,可获取歌手分类列表
+ * 可选参数 :
+ * limit : 返回数量 , 默认为 30
+ * offset : 偏移数量，用于分页 , 如 : 如 :( 页数 -1)*30, 其中 30 为 limit 的值 , 默认为 0 initial: 按首字母索引查找参数,如 /artist/list?type=1&area=96&initial=b 返回内容将以 name 字段开头为 b 或者拼音开头为 b 为顺序排列, 热门传-1,#传0
+ * type 取值:
+ *    -1:全部
+ *    1:男歌手
+ *    2:女歌手
+ *    3:乐队
+ * area 取值:
+ *    -1:全部
+ *    7华语
+ *    96欧美
+ *    8:日本
+ *    16韩国
+ *    0:其他
+ * 接口地址 : /artist/list
+ * 调用例子 : /artist/list?type=1&area=96&initial=b /artist/list?type=2&area=2&initial=b
  */
+export async function getArtistList(params: {
+  type?: number | string;
+  area?: number | string;
+  initial?: string;
+  limit?: number | string;
+  offset?: number | string;
+}) {
+  console.log(params);
 
+  const result = await get("/api/artist/list", params);
+  return result;
+}
 /**
  * 收藏/取消收藏歌手
 说明 : 调用此接口,可收藏歌手
@@ -562,12 +566,14 @@ t : 1 为收藏,其他为取消收藏
 
 /**
  * 歌单分类
-说明 : 调用此接口,可获取歌单分类,包含 category 信息
-
-接口地址 : /playlist/catlist
-
-调用例子 : /playlist/catlist
+ * 说明 : 调用此接口,可获取歌单分类,包含 category 信息
+ * 接口地址 : /playlist/catlist
+ * 调用例子 : /playlist/catlist
  */
+export async function getPlayListCatList() {
+  const result = await get("/api/playlist/catlist");
+  return result;
+}
 
 /**
  * 热门歌单分类
