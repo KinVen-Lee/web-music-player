@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTopListDetail } from "@netWork/request";
 import "./index.less";
-import { TopListCard } from "../Card";
+import { TopListCard } from "./TopListDetailCard";
 
 /**
  * 首页排行榜摘要

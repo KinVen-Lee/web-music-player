@@ -1,42 +1,45 @@
 import { useEffect, useState } from "react";
 import { getBanner } from "@netWork/request";
 import SectionMod from "../SectionMod";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper.less";
-import "swiper/components/navigation/navigation.less";
-import "swiper/components/pagination/pagination.less";
 import "./index.less";
-SwiperCore.use([Navigation, Pagination, Autoplay]);
+import _ from "lodash";
 /**
  * 首页banner
  */
 const Banner = () => {
   const [bannerList, setBannerList] = useState<Array<any>>([]);
   useEffect(() => {
-    getBanner("/api/banner").then((res) => setBannerList(res.banners));
+    getBanner("/api/banner").then((res) =>
+      setBannerList(_.chunk(res.banners, 2))
+    );
   }, []);
   return (
-    <SectionMod title="精彩推荐" className="banner">
-      <Swiper
-        navigation
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
-        pagination={{ clickable: true }}
-      >
-        {bannerList &&
-          bannerList.map((bannerItem, index) => (
-            <SwiperSlide key={bannerItem.targetId} virtualIndex={index}>
-              <div className="banner-box">
-                <a href="0" className="banner-link">
-                  <img src={bannerItem.imageUrl} className="banner-pic" />
-                </a>
+    <SectionMod
+      title="精彩推荐"
+      className="banner"
+      style={{ transform: "translate3d(0, 0, 0)" }}
+    >
+      {bannerList &&
+        bannerList.map((items: any, index: number) => {
+          return (
+            <div key={index} className="div">
+              <div
+                className={`carousel-item carousel-item${index} banner-carousel`}
+              >
+                {items.map((bannerListItem: any) => (
+                  <div className="banner-card" key={bannerListItem.targetId}>
+                    <a href="#" className="banner-link">
+                      <img
+                        src={bannerListItem.imageUrl}
+                        className="banner-pic"
+                      />
+                    </a>
+                  </div>
+                ))}
               </div>
-            </SwiperSlide>
-          ))}
-      </Swiper>
+            </div>
+          );
+        })}
     </SectionMod>
   );
 };

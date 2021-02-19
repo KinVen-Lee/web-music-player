@@ -9,7 +9,7 @@ import "./index.less";
 const AlbumRecom = () => {
   const [songList, setSongList] = useState<any>(null);
   useEffect(() => {
-    getPersonalizedDjprogram("/api/personalized/djprogram").then((res) =>
+    getPersonalizedDjprogram().then((res) =>
       setSongList(res.result)
     );
   }, []);

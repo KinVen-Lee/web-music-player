@@ -1,15 +1,4 @@
-import React from "react";
-import "./index.less";
-import camera from "@assets/svg/camera.svg";
-interface TopSongCardProps {
-  topSongName?: string;
-  artistName?: string;
-  duration?: number;
-  data?: any;
-}
-
-
-
+import "./RecommendCard.less";
 
 
 
@@ -42,15 +31,3 @@ export const SongListCard = (props: any) => {
     </div>
   );
 };
-
-const Card = () => {
-  return (
-    <>
-      {/* <TopSongCard /> */}
-      {/* <MVCard /> */}
-      {/* <TopListCard /> */}
-      <SongListCard />
-    </>
-  );
-};
-export default Card;

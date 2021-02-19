@@ -6,14 +6,16 @@ interface NavBarProps {
   dataSource?: NavBarData[];
   className?: string;
   style?: React.CSSProperties;
+  customFunction?: any;
 }
 
 const NavBar = (props: NavBarProps) => {
-  const { dataSource, className, style } = props;
+  const { dataSource, className, style, customFunction } = props;
   const [current, setCurrent] = useState("");
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
+    customFunction(e.key)
     console.log(e.key);
   };
 

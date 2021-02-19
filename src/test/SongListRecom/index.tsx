@@ -10,7 +10,7 @@ const SongListRecom = () => {
   const [startIndex, setStartIndex] = useState<number>(0);
 
   useEffect(() => {
-    getSongListRecom("/api/personalized?limit=5", {}).then((res) =>
+    getSongListRecom().then((res) =>
       setSongList(res)
     );
   }, []);
