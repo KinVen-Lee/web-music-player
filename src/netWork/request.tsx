@@ -1,4 +1,125 @@
-import { get } from "./axios";
+import { get, post } from "./axios";
+
+/**
+ * 1. 手机登录
+ * 必选参数 :
+ * phone: 手机号码
+ * password: 密码
+ * 可选参数 :
+ * countrycode: 国家码，用于国外手机号登录，例如美国传入：1
+ * md5_password: md5加密后的密码,传入后 password 将失效
+ * 接口地址 : /login/cellphone
+ * 调用例子 : /login/cellphone?phone=xxx&password=yyy /login/cellphone?phone=xxx&md5_password=yyy
+ * @param params
+ */
+export async function postLogin(params: { phone: string; password: String }) {
+  const result = await post("/api/login/cellphone", params);
+  return result;
+}
+
+/**
+ * 刷新登录
+ * 说明 : 调用此接口 , 可刷新登录状态
+ */
+export async function LoginRefresh() {
+  const result = await get("/api/login/refresh");
+  return result;
+}
+/**
+ * 发送验证码
+ * 说明 : 调用此接口 ,传入手机号码, 可发送验证码
+ * 必选参数 : phone: 手机号码
+ * 可选参数 : ctcode: 国家区号,默认86即中国
+ * 接口地址 : /captcha/sent
+ * 调用例子 : /captcha/sent?phone=13xxx
+ * @param params
+ */
+export async function captchaSent(params: { phone: string; ctcode?: string }) {
+  const result = await get("/api/captcha/sent", params);
+  return result;
+}
+/**
+ * 验证验证码
+ * 说明 : 调用此接口 ,传入手机号码和验证码, 可校验验证码是否正确
+ * 必选参数 :
+ *     phone: 手机号码
+ *     captcha: 验证码
+ * 可选参数 :
+ *     ctcode: 国家区号,默认86即中国
+ * 接口地址 : /captcha/verify
+ * 调用例子 : /captcha/verify?phone=13xxx&captcha=1597
+ * @param params
+ */
+export async function captchaVerify(params: {
+  phone: string;
+  captcha: string;
+  ctcode?: string;
+}) {
+  const result = await get("/api/captcha/verify", params);
+  return result;
+}
+/**
+ * 注册(修改密码)
+ *  说明 : 调用此接口 ,传入手机号码和验证码,密码,昵称, 可注册网易云音乐账号(同时可修改密码)
+ * 必选参数 :
+ *    captcha: 验证码
+ *    phone : 手机号码
+ *    password: 密码
+ *    nickname: 昵称
+ * 接口地址 : /register/cellphone
+ * 调用例子 : /register/cellphone?phone=13xxx&password=xxxxx&captcha=1234&nickname=binary1345
+ * @param params
+ */
+export async function registerCellphone(params: {
+  phone: string;
+  captcha: string;
+  password: string;
+  nickname: string;
+}) {
+  const result = await post("/api/register/cellphone", params);
+  return result;
+}
+/**
+ * 更换绑定手机
+ * 说明 : 调用此接口 ,可更换绑定手机(流程:先发送验证码到原手机号码,再发送验证码到新手机号码然后再调用此接口)
+ * 必选参数 :
+ *    oldcaptcha: 原手机验证码
+ *    captcha: 新手机验证码
+ *    phone : 手机号码
+ *    ctcode : 国家区号,默认86即中国
+ * 接口地址 : /rebind
+ * 调用例子 : /rebind?phone=xxx&oldcaptcha=1234&captcha=5678
+ * @param params
+ */
+export async function rebind(params: {
+  oldcaptcha: string;
+  captcha: string;
+  phone: string;
+  ctcode: string;
+}) {
+  const result = await post("/api/rebind", params);
+  return result;
+}
+/**
+ * 退出登录
+ * 说明 : 调用此接口 , 可退出登录
+ * 调用例子 : /logout
+ */
+export async function logout() {
+  const result = await get("/api/logout");
+  return result;
+}
+
+/**
+ * 登录状态
+ * 说明 : 调用此接口,可获取登录状态
+ * 接口地址 : /login/status
+ */
+export async function logjinSatus() {
+  const result = await get("/api/login/status");
+  return result;
+}
+
 /**
  * banner
  * 说明 : 调用此接口 , 可获取 banner( 轮播图 ) 数据
@@ -11,8 +132,8 @@ import { get } from "./axios";
  * 接口地址 : /banner
  * 调用例子 : /banner, /banner?type=2
  */
-export async function getBanner(url: string) {
-  const result = await get(url);
+export async function getBanner(url = "/api/banner", params = { type: 0 }) {
+  const result = await get(url, params);
   return result;
 }
 export async function getSongListRecom(params = { limit: 30 }) {
@@ -2819,8 +2940,11 @@ offset: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)*10, 其中 10 为 
  * 调用例子 : /artist/new/song?limit=1
  *           /artist/new/song?limit=1&before=1602777625000
  */
-export async function getArtistNewSong(url: string) {
-  const result = await get(url);
+export async function getArtistNewSong(
+  url = "/api/artist/new/song",
+  params = { limit: "20", before: "" }
+) {
+  const result = await get(url, params);
   return result;
 }
 
@@ -2832,7 +2956,10 @@ export async function getArtistNewSong(url: string) {
  * 接口地址 : /artist/new/mv
  * 调用例子 : /artist/new/mv?limit=1 /artist/new/mv?limit=1&before=1602777625000
  */
-export async function getArtistNewMV(url: string) {
-  const result = await get(url);
+export async function getArtistNewMV(
+  url = "/api/artist/new/mv",
+  params = { limit: "20", before: "" }
+) {
+  const result = await get(url, params);
   return result;
 }

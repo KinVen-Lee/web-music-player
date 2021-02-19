@@ -5,7 +5,8 @@ axios.defaults.timeout = 100000;
 axios.defaults.headers.post["Content-Type"] = "application/json";
 // axios.defaults.baseURL = 'http://localhost:3000/'
 // axios.defaults.headers["Access-Control-Allow-Headers"]='Origin, X-Requested-With, content-Type, Accept, Authorization'
-axios.defaults.headers["Access-Control-Allow-Methods"]='GET, POST, PUT,DELETE,OPTIONS,PATCH'
+axios.defaults.headers["Access-Control-Allow-Methods"] =
+  "GET, POST, PUT,DELETE,OPTIONS,PATCH";
 /**
  * http request 拦截器
  */
@@ -19,8 +20,6 @@ axios.interceptors.request.use(
     return config;
   },
   (error) => {
-    console.log("123");
-    
     console.log("请求超时");
     return Promise.reject(error);
   }
@@ -49,7 +48,9 @@ axios.interceptors.response.use(
  * @param params  请求参数
  * @returns {Promise}
  */
-export function get(url: string, params = {}):Promise<any> {
+
+
+export function get(url: string, params = {}): Promise<any> {
   return new Promise((resolve, reject) => {
     axios({ method: "get", url, params })
       .then((response) => {
