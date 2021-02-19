@@ -1,26 +1,8 @@
 import TopMenu from "./component/TopMenu";
-<<<<<<< HEAD
-// import Main from "./views/main";
-import Singer from "./views/singer";
-import PlayList from './views/playList'
-import { Layout } from "antd";
-const { Header, Content, Footer } = Layout;
-const App = () => {
-  return (
-    <Layout className="layout">
-      {/* <Header>
-        <TopMenu />
-      </Header> */}
-      <Content>
-        <PlayList />
-      </Content>
-      {/* <Footer> */}
-
-      {/* </Footer> */}
-=======
 import Main from "./views/main";
 
 import { Layout, Menu } from "antd";
+import { Input } from "antd";
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -60,33 +42,35 @@ const App = () => {
         <div className="logo" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]}>
           <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
+            音乐馆
           </Menu.Item>
           <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
+            视频
           </Menu.Item>
           <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
+            电台
           </Menu.Item>
           <Menu.Item key="4" icon={<BarChartOutlined />}>
-            nav 4
+            我喜欢
           </Menu.Item>
           <Menu.Item key="5" icon={<CloudOutlined />}>
-            nav 5
+            播放历史
           </Menu.Item>
           <Menu.Item key="6" icon={<AppstoreOutlined />}>
-            nav 6
+            试听列表
           </Menu.Item>
           <Menu.Item key="7" icon={<TeamOutlined />}>
-            nav 7
+            创建歌单
           </Menu.Item>
           <Menu.Item key="8" icon={<ShopOutlined />}>
-            nav 8
+            收藏歌单
           </Menu.Item>
         </Menu>
       </Sider>
       <Layout className="site-layout" style={{ marginLeft: 200 }}>
-        <Header className="site-layout-background" style={{ padding: 0 }} />
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          <Input placeholder="搜索音乐" />
+        </Header>
         <Content style={{ margin: "24px 16px 0", overflow: "initial" }}>
           <div
             className="site-layout-background"
@@ -97,7 +81,6 @@ const App = () => {
         </Content>
         <MusicPlay />
       </Layout>
->>>>>>> 6943005599ac390214ea878a8ee5ae8c5069c2b5
     </Layout>
   );
 };

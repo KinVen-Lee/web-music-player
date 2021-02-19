@@ -9,10 +9,9 @@ interface PlayListTagItemProps {
 const PlayListTagItem = (props: PlayListTagItemProps) => {
   const { category } = props;
   const { sub, categories } = useContext(PlayListContext);
-
   return (
     <>
-      <div className="playlist_tag__list playlist_tag__list--lang">
+      <div className="playlist-tag-list playlist_tag__list--lang">
         <h3 className="playlist_tag__tit c_tx_thin">
           {categories && categories[category]}
         </h3>
