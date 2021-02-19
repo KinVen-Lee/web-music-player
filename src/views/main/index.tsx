@@ -45,12 +45,12 @@ const Main = () => {
     <>
       {/* <NavBar dataSource={NavBarData} className="top-nav-bar" /> */}
 
-      <SongListRecom />
+      {/* <SongListRecom /> */}
       <TopSong />
       {/* <Banner /> */}
       {/* <MVRecom /> */}
       {/* <AlbumRecom /> */}
-      {/* <TopListDetail /> */}
+      <TopListDetail />
       {/* <NavBar /> */}
     </>
   );

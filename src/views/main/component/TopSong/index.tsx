@@ -15,7 +15,7 @@ SwiperCore.use([Navigation, Pagination, Autoplay]);
 const TopSong = () => {
   const [topSongList, setTopSongList] = useState<any>(null);
   useEffect(() => {
-    getTopSong("/api/top/song", {}).then((res) => setTopSongList(res.data));
+    getTopSong("/api/top/song", {type:'8'}).then((res) => setTopSongList(res.data));
   }, []);
 
   const NavBarData: NavBarData[] = [

@@ -8,9 +8,9 @@ const App = () => {
       <Header>
         <TopMenu />
       </Header>
-      <Content>
+      {/* <Content>
         <Main />
-      </Content>
+      </Content> */}
       {/* <Footer> */}
 
       {/* </Footer> */}
