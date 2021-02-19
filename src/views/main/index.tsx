@@ -45,20 +45,13 @@ const Main = () => {
     <>
       {/* <NavBar dataSource={NavBarData} className="top-nav-bar" /> */}
 
-<<<<<<< HEAD
-      {/* <SongListRecom /> */}
-=======
       <Recommend />
->>>>>>> e07e3001c5673a57133465c682018d6cbc1850d5
       <TopSong />
       <Banner />
 
       {/* <AlbumRecom /> */}
       <TopListDetail />
-<<<<<<< HEAD
-=======
       <FirstMV />
->>>>>>> e07e3001c5673a57133465c682018d6cbc1850d5
       {/* <NavBar /> */}
     </>
   );

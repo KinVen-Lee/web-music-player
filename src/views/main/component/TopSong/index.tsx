@@ -11,13 +11,8 @@ const TopSong = () => {
   const [topSongList, setTopSongList] = useState<any>(null);
   const [type, setType] = useState(0);
   useEffect(() => {
-<<<<<<< HEAD
-    getTopSong("/api/top/song", {type:'8'}).then((res) => setTopSongList(res.data));
-  }, []);
-=======
     getTopSong({ type }).then((res) => setTopSongList(_.chunk(res.data, 9)));
   }, [type]);
->>>>>>> e07e3001c5673a57133465c682018d6cbc1850d5
 
   const NavBarData: NavBarData[] = [
     {

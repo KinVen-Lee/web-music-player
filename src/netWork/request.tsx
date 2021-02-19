@@ -136,14 +136,8 @@ export async function getBanner(url = "/api/banner", params = { type: 0 }) {
   const result = await get(url, params);
   return result;
 }
-<<<<<<< HEAD
-
-export async function getSongListRecom(url: string, params = {}) {
-  const result = await get(url, params);
-=======
 export async function getSongListRecom(params = { limit: 30 }) {
   const result = await get("/api/personalized", params);
->>>>>>> e07e3001c5673a57133465c682018d6cbc1850d5
   return result.result;
 }
 
