@@ -14,10 +14,32 @@ import volume from "./image/volume.svg";
 const MusicPlay = () => {
   return (
     <>
-      <div className="music-play">
-        <div className="song-info"></div>
-        <div className="song-play-control"></div>
-        <div className="song-other-control"></div>
+      <div className="music-play-control-box">
+        <div className="song-info">
+          <div className="song-pic"></div>
+          <div className="song-title">
+            <div className="song-name">清新小女孩</div>
+            <div className="song-control">
+              <div className="song-love">
+                <img src={love} alt="" />
+              </div>
+              <div className="song-comments">
+                <img src={comment} alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="song-play-control">
+          <div className="song-mode"></div>
+          <div className="last-song"></div>
+          <div className="play-song"></div>
+          <div className="next-song"></div>
+          <div className="song-volume"></div>
+        </div>
+        <div className="song-other-control">
+          <div className="song-time"></div>
+          <div className="song-playlist"></div>
+        </div>
       </div>
     </>
   );
