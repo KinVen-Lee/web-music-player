@@ -2,6 +2,7 @@ import "./index.less";
 import { Card, Avatar } from "antd";
 import { SingerInfo } from "../../utils/interface";
 
+
 interface SingerCardProps {
   data: SingerInfo;
 }

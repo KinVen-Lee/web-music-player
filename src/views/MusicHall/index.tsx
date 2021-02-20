@@ -12,17 +12,14 @@ import TopListDetail from "./component/TopListDetail";
 const MusicHall = () => {
   const NavBarData: NavBarData[] = [
     {
-      data: "首页",
-      key: "shouye",
+      data: "精选",
+      key: "Recommend",
     },
     {
       data: "歌手",
-      key: "geshou",
+      key: "singer",
     },
-    {
-      data: "新碟",
-      key: "xindie",
-    },
+
     {
       data: "排行榜",
       key: "paihangbang",
@@ -31,27 +28,19 @@ const MusicHall = () => {
       data: "分类歌单",
       key: "feileigedan",
     },
-    {
-      data: "电台",
-      key: "diantai",
-    },
-    {
-      data: "MV",
-      key: "MV",
-    },
   ];
 
   return (
     <>
-      {/* <NavBar dataSource={NavBarData} className="top-nav-bar" /> */}
+      <NavBar dataSource={NavBarData} className="top-nav-bar" />
 
-      <Recommend />
+      {/* <Recommend />
       <TopSong />
-      <Banner />
+      <Banner /> */}
 
       {/* <AlbumRecom /> */}
-      <TopListDetail />
-      <FirstMV />
+      {/* <TopListDetail />
+      <FirstMV /> */}
       {/* <NavBar /> */}
     </>
   );

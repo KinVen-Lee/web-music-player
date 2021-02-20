@@ -1,5 +1,7 @@
 import { Menu } from "antd";
+import React from "react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { NavBarData } from "../interface";
 import "./index.less";
 interface NavBarProps {
@@ -15,8 +17,8 @@ const NavBar = (props: NavBarProps) => {
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
-    customFunction(e.key)
-    console.log(e.key);
+    // customFunction(e.key)
+    // console.log(e.key);
   };
 
   useEffect(() => {
@@ -29,7 +31,8 @@ const NavBar = (props: NavBarProps) => {
         {dataSource &&
           dataSource.map((item) => (
             <Menu.Item key={item.key}>
-              <span>{item.data}</span>
+              <Link to={`musichall/${item.key}`}>{item.data}</Link>
+              {/* <span></span> */}
             </Menu.Item>
           ))}
       </Menu>

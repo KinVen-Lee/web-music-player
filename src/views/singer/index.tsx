@@ -1,7 +1,7 @@
 import "./index.less";
 import React, { useEffect, useRef, useState } from "react";
 import { getArtistList } from "@/netWork/request";
-import SingerTarget from "./component/singerTarget";
+import SingerTarget from "./component/SingerTarget";
 import { Card, List, Spin } from "antd";
 import InfiniteScroll from "react-infinite-scroller";
 import WindowScroller from "react-virtualized/dist/commonjs/WindowScroller";
@@ -9,7 +9,7 @@ import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
 import VList from "react-virtualized/dist/commonjs/List";
 import InfiniteLoader from "react-virtualized/dist/commonjs/InfiniteLoader";
 import _ from "lodash";
-import SingerCard from "./component/singerCard";
+import SingerCard from "./component/SingerCard";
 import { SingerInfo } from "./utils/interface";
 const Main = () => {
   const [type, setType] = useState<number>(-1);
