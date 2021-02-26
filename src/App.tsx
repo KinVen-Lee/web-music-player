@@ -39,7 +39,7 @@ const App = () => {
                   电台
                 </Menu.Item>
               </Menu.ItemGroup>
-              <Menu.ItemGroup key="g1" title="我的音乐">
+              <Menu.ItemGroup key="g2" title="我的音乐">
                 <Menu.Item key="4" icon={<BarChartOutlined />}>
                   我喜欢
                 </Menu.Item>

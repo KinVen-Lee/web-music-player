@@ -11,8 +11,8 @@ const AppRouter = () => {
       path: "/",
       element: <MusicHall />,
       children: [
-        { path: "musichall/", element: <Recommend /> },
-        { path: "musichall/singer", element: <Singer /> },
+        { path: "/", element: <Recommend /> },
+        { path: "singer", element: <Singer /> },
       ],
     },
     { path: "/mv", element: <MV /> },

@@ -1,47 +1,36 @@
 import React from "react";
-
-import NavBar from "@/component/NavBar";
-import Banner from "./component/Banner";
-import Recommend from "./component/Recommend";
-import AlbumRecom from "./component/AlbumRecom";
-import TopSong from "./component/TopSong";
-
-import { NavBarData } from "@component/interface";
-import FirstMV from "./component/FirstMV";
-import TopListDetail from "./component/TopListDetail";
+import { NavBarData } from "./interface";
+import { Outlet, useParams } from "react-router-dom";
+import NavBar from "./components/NavBar";
 const MusicHall = () => {
   const NavBarData: NavBarData[] = [
     {
       data: "精选",
-      key: "Recommend",
+      key: "/",
+      path: "/",
     },
     {
       data: "歌手",
       key: "singer",
+      path: "singer",
     },
 
     {
       data: "排行榜",
-      key: "paihangbang",
+      key: "topList",
+      path: "topList",
     },
     {
       data: "分类歌单",
-      key: "feileigedan",
+      key: "songList",
+      path: "songList",
     },
   ];
 
   return (
     <>
       <NavBar dataSource={NavBarData} className="top-nav-bar" />
-
-      {/* <Recommend />
-      <TopSong />
-      <Banner /> */}
-
-      {/* <AlbumRecom /> */}
-      {/* <TopListDetail />
-      <FirstMV /> */}
-      {/* <NavBar /> */}
+      <Outlet />
     </>
   );
 };

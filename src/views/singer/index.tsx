@@ -10,6 +10,8 @@ import VList from "react-virtualized/dist/commonjs/List";
 import InfiniteLoader from "react-virtualized/dist/commonjs/InfiniteLoader";
 import _ from "lodash";
 import { SingerInfo } from "./utils/interface";
+import SingerCard from "./component/SingerCard";
+import SingerTarget from "./component/SingerTarget";
 
 const Main = () => {
   const [type, setType] = useState<number>(-1);
@@ -257,7 +259,6 @@ const Main = () => {
   ];
 
   // const handleInfiniteOnLoad = () => {
-  //   // debugger
 
   //   setLoading(true);
 
