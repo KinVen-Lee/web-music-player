@@ -15,11 +15,18 @@ const Banner = () => {
     );
   }, []);
   return (
-    <SectionMod className="banner" style={{ transform: "translate3d(0, 0, 0)" }}>
+    <SectionMod
+      className="banner"
+      style={{
+        transform: "translate3d(0, 0, 0)",
+        height: "200px",
+        width: "100%",
+      }}
+    >
       {bannerList &&
         bannerList.map((items: any, index: number) => {
           return (
-            <div key={index} className="div">
+            <div key={index}>
               <div
                 className={`carousel-item carousel-item${index} banner-carousel`}
               >

@@ -26,11 +26,10 @@ const SectionMod = (props: SectionModProps) => {
       <div className="section-content">
         {title && <div className="section-title">{title}</div>}
         <div className="section-carousel">
-          {/* <Carousel ref={carouselRef}>{renderCarousel()}</Carousel> */}
           <div className="carousel-content">
             <Carousel ref={carouselRef}> {props.children}</Carousel>
           </div>
-          <div className="section-slide">
+          {/* <div className="section-slide">
             <div className="slide-action slide-action-left">
               <a
                 className="slide-action-btn slide-action-btn-left"
@@ -55,7 +54,7 @@ const SectionMod = (props: SectionModProps) => {
                 />
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
