@@ -1,5 +1,6 @@
 .mod-section {
   position: relative;
+  margin: 10px 0;
   .section-content {
     height: 100%;
     width: 100%;
@@ -7,17 +8,13 @@
     flex-flow: column;
     .section-title {
       display: block;
-      height: 45px;
-      line-height: 45px;
-      font-size: 25px;
-      text-align: center;
-      font-weight: bold;
-      margin-top: 50px;
-      margin-bottom: 24px;
-      letter-spacing: 4px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+      margin-left: 30px;
     }
-
     .section-carousel {
+      padding: 0 30px;
       width: 100%;
       height: 100%;
       flex: 1;
@@ -25,51 +22,6 @@
       .carousel-content {
         height: 100%;
         width: 100%;
-        // margin: 0 100px;
-      }
-      .section-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-
-        .slide-action-left {
-          left: 0;
-
-          .slide-action-btn-left {
-            left: 0;
-            // transform: translateX(-100%);
-
-            .icon-txt {
-              font: 0/0 a;
-            }
-
-            .slide-action-arrow-left {
-              left: 29px;
-              // background-position: ;
-            }
-          }
-        }
-
-        .slide-action-right {
-          right: 0;
-
-          .slide-action-btn-right {
-            right: 0;
-            // transform: translateX(100%);
-
-            .icon-txt {
-              font: 0/0 a;
-            }
-
-            .slide-action-arrow-right {
-              right: 29px;
-              // background-position: ;
-            }
-          }
-        }
       }
     }
   }
@@ -81,6 +33,22 @@
     transform: translateX(0);
     transition-property: opacity, transform, background, width;
     transition-duration: 0.5s;
+  }
+}
+.section-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .slide-action-left {
+    left: 0;
+    background: white;
+  }
+  .slide-action-right {
+    right: 0;
+    background: white;
   }
 }
 
@@ -95,24 +63,8 @@
 .slide-action {
   position: absolute;
   top: 0;
-  width: 50%;
+  width: 30px;
   height: 100%;
-}
-
-.slide-action-btn {
-  position: absolute;
-  top: 50%;
-  margin-top: -54px;
-  width: 79px;
-  height: 108px;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#14000000', endColorstr='#14000000');
-  background: url(#);
-  background: rgba(0, 0, 0, 0.05);
-  opacity: 0;
-  visibility: none;
-  transition-property: opacity, transform;
-  transition-duration: 0.5s;
-  z-index: 2;
 }
 
 .slide-action-btn:hover {

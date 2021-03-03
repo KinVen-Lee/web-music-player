@@ -13,7 +13,7 @@ import { get, post } from "./axios";
  * @param params
  */
 export async function postLogin(params: { phone: string; password: String }) {
-  const result = await post("/api/login/cellphone", params);
+  const result = await post("/login/cellphone", params);
   return result;
 }
 
@@ -22,7 +22,7 @@ export async function postLogin(params: { phone: string; password: String }) {
  * 说明 : 调用此接口 , 可刷新登录状态
  */
 export async function LoginRefresh() {
-  const result = await get("/api/login/refresh");
+  const result = await get("/login/refresh");
   return result;
 }
 /**
@@ -35,7 +35,7 @@ export async function LoginRefresh() {
  * @param params
  */
 export async function captchaSent(params: { phone: string; ctcode?: string }) {
-  const result = await get("/api/captcha/sent", params);
+  const result = await get("/captcha/sent", params);
   return result;
 }
 /**
@@ -55,7 +55,7 @@ export async function captchaVerify(params: {
   captcha: string;
   ctcode?: string;
 }) {
-  const result = await get("/api/captcha/verify", params);
+  const result = await get("/captcha/verify", params);
   return result;
 }
 /**
@@ -76,7 +76,7 @@ export async function registerCellphone(params: {
   password: string;
   nickname: string;
 }) {
-  const result = await post("/api/register/cellphone", params);
+  const result = await post("/register/cellphone", params);
   return result;
 }
 /**
@@ -97,7 +97,7 @@ export async function rebind(params: {
   phone: string;
   ctcode: string;
 }) {
-  const result = await post("/api/rebind", params);
+  const result = await post("/rebind", params);
   return result;
 }
 /**
@@ -106,7 +106,7 @@ export async function rebind(params: {
  * 调用例子 : /logout
  */
 export async function logout() {
-  const result = await get("/api/logout");
+  const result = await get("/logout");
   return result;
 }
 
@@ -116,7 +116,7 @@ export async function logout() {
  * 接口地址 : /login/status
  */
 export async function logjinSatus() {
-  const result = await get("/api/login/status");
+  const result = await get("/login/status");
   return result;
 }
 
@@ -132,12 +132,12 @@ export async function logjinSatus() {
  * 接口地址 : /banner
  * 调用例子 : /banner, /banner?type=2
  */
-export async function getBanner(url = "/api/banner", params = { type: 0 }) {
+export async function getBanner(url = "/banner", params = { type: 0 }) {
   const result = await get(url, params);
   return result;
 }
 export async function getSongListRecom(params = { limit: 30 }) {
-  const result = await get("/api/personalized", params);
+  const result = await get("/personalized", params);
   return result.result;
 }
 
@@ -570,7 +570,7 @@ export async function getArtistList(params: {
 }) {
   console.log(params);
 
-  const result = await get("/api/artist/list", params);
+  const result = await get("/artist/list", params);
   return result;
 }
 /**
@@ -692,7 +692,7 @@ t : 1 为收藏,其他为取消收藏
  * 调用例子 : /playlist/catlist
  */
 export async function getPlayListCatList() {
-  const result = await get("/api/playlist/catlist");
+  const result = await get("/playlist/catlist");
   return result;
 }
 
@@ -1004,7 +1004,7 @@ type: 地区类型 id,对应以下:
 调用例子 : /top/song?type=96
  */
 export async function getTopSong(params = { type: 0 }) {
-  const result = await get("/api/top/song", params);
+  const result = await get("/top/song", params);
   return result;
 }
 /**
@@ -1785,7 +1785,7 @@ offset: 偏移数量 , 用于分页 , 如 :( 页数 -1)*50, 其中 50 为 limit 
  * 调用例子 : /mv/first?limit=10
  */
 export async function getFirstMV(params: { area?: string; limit?: string }) {
-  const result = await get("/api/mv/first", params);
+  const result = await get("/mv/first", params);
   return result;
 }
 /**
@@ -1803,21 +1803,23 @@ export async function getFirstMV(params: { area?: string; limit?: string }) {
  * 接口地址 : /personalized/mv
  * 调用例子 : /personalized/mv
  */
-export async function getPersonalizedMV(url: string) {
-  const result = await get(url);
+export async function getPersonalizedMV() {
+  const result = await get("/personalized/mv");
   return result;
 }
 /**
  * 推荐歌单
-说明 : 调用此接口 , 可获取推荐歌单
-
-可选参数 : limit: 取出数量 , 默认为 30 (不支持 offset)
-
-接口地址 : /personalized
-
-调用例子 : /personalized?limit=1
+ * 说明 : 调用此接口 , 可获取推荐歌单
+ * 可选参数 : limit: 取出数量 , 默认为 30 (不支持 offset)
+ * 接口地址 : /personalized
+ * 调用例子 : /personalized?limit=1
  */
-
+export async function getPersonalizedSongList(
+  params: { limit?: number } = { limit: 30 }
+) {
+  const result = await get("/personalized", params);
+  return result;
+}
 /**
  * 推荐新音乐
  * 说明 : 调用此接口 , 可获取推荐新音乐
@@ -1825,8 +1827,10 @@ export async function getPersonalizedMV(url: string) {
  * 接口地址 : /personalized/newsong
  * 调用例子 : /personalized/newsong
  */
-export async function getPersonalizedNewSong(params = { limit: 10 }) {
-  const result = await get("/api/personalized/newsong", params);
+export async function getPersonalizedNewSong(
+  params: { limit?: number } = { limit: 10 }
+) {
+  const result = await get("/personalized/newsong", params);
   return result;
 }
 /**
@@ -1836,7 +1840,7 @@ export async function getPersonalizedNewSong(params = { limit: 10 }) {
  * 调用例子 : /personalized/djprogram
  */
 export async function getPersonalizedDjprogram() {
-  const result = await get("/api/personalized/djprogram");
+  const result = await get("/personalized/djprogram");
   return result;
 }
 
@@ -2941,7 +2945,7 @@ offset: 偏移数量 , 用于分页 , 如 :( 评论页数 -1)*10, 其中 10 为 
  *           /artist/new/song?limit=1&before=1602777625000
  */
 export async function getArtistNewSong(
-  url = "/api/artist/new/song",
+  url = "/artist/new/song",
   params = { limit: "20", before: "" }
 ) {
   const result = await get(url, params);
@@ -2957,7 +2961,7 @@ export async function getArtistNewSong(
  * 调用例子 : /artist/new/mv?limit=1 /artist/new/mv?limit=1&before=1602777625000
  */
 export async function getArtistNewMV(
-  url = "/api/artist/new/mv",
+  url = "/artist/new/mv",
   params = { limit: "20", before: "" }
 ) {
   const result = await get(url, params);

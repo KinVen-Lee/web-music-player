@@ -1,13 +1,20 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
-import Banner from "./components/Banner";
+import BannerArea from "./components/Banner";
+import DjprogramArea from "./components/Djprogram";
+import MVArea from "./components/MV";
+import NewSongArea from "./components/NewSong";
+import SongListArea from "./components/SongList";
 import "./index.less";
 
 const Recommend = () => {
   return (
     <>
       <div className="div">
-        <Banner />
+        {/* <BannerArea /> */}
+        {/* <MVArea /> */}
+        <SongListArea />
+        {/* <NewSongArea /> */}
+        {/* <DjprogramArea /> */}
       </div>
     </>
   );

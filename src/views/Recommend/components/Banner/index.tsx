@@ -7,19 +7,17 @@ import SectionMod from "../SectionMod";
 /**
  * 首页banner
  */
-const Banner = () => {
+const BannerArea = () => {
   const [bannerList, setBannerList] = useState<Array<any>>([]);
   useEffect(() => {
-    getBanner("/api/banner").then((res) =>
-      setBannerList(_.chunk(res.banners, 2))
-    );
+    getBanner("/banner").then((res) => setBannerList(_.chunk(res.banners, 2)));
   }, []);
   return (
     <SectionMod
       className="banner"
       style={{
         transform: "translate3d(0, 0, 0)",
-        height: "200px",
+        height: "150px",
         width: "100%",
       }}
     >
@@ -47,4 +45,4 @@ const Banner = () => {
     </SectionMod>
   );
 };
-export default Banner;
+export default BannerArea;

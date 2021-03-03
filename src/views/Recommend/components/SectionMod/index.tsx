@@ -3,6 +3,7 @@ import "./index.less";
 import carouselLeft from "@assets/svg/carousel_left.svg";
 import carouselRight from "@assets/svg/carousel_right.svg";
 import { Carousel } from "antd";
+import { useState } from "react";
 
 interface SectionModProps {
   className?: string;
@@ -14,6 +15,7 @@ interface SectionModProps {
 const SectionMod = (props: SectionModProps) => {
   const { className, title, style } = props;
   const carouselRef = useRef(null);
+  const [show, setShow] = useState(false);
   const handleNext = () => {
     (carouselRef.current as any).next();
   };
@@ -21,40 +23,47 @@ const SectionMod = (props: SectionModProps) => {
   const handlePre = () => {
     (carouselRef.current as any).prev();
   };
+
+  const handleMouseEnter = () => {
+    setShow(true);
+  };
+  const handleMouseLeave = () => {
+    setShow(false);
+  };
   return (
     <div className={`mod-section ${className ?? ""}`} style={style}>
       <div className="section-content">
         {title && <div className="section-title">{title}</div>}
-        <div className="section-carousel">
+        <div
+          className="section-carousel"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <div className="carousel-content">
             <Carousel ref={carouselRef}> {props.children}</Carousel>
           </div>
-          {/* <div className="section-slide">
-            <div className="slide-action slide-action-left">
-              <a
-                className="slide-action-btn slide-action-btn-left"
+          {show && (
+            <div className="section-slide">
+              <div
+                className="slide-action slide-action-left"
                 onClick={handlePre}
               >
-                <i className="icon-txt">上一页</i>
                 <img
                   src={carouselRight}
                   className="slide-action-arrow slide-action-arrow-left"
                 />
-              </a>
-            </div>
-            <div className="slide-action slide-action-right">
-              <a
-                className="slide-action-btn slide-action-btn-right"
+              </div>
+              <div
+                className="slide-action slide-action-right"
                 onClick={handleNext}
               >
-                <i className="icon-txt">下一页</i>
                 <img
                   src={carouselLeft}
                   className="slide-action-arrow slide-action-arrow-right"
                 />
-              </a>
+              </div>
             </div>
-          </div> */}
+          )}
         </div>
       </div>
     </div>
