@@ -1,100 +1,75 @@
 import "./index.less";
-import React, { useEffect, useRef, useState } from "react";
-import { getArtistList } from "@/netWork/request";
-
-import { Card, List, Spin } from "antd";
-import InfiniteScroll from "react-infinite-scroller";
-import WindowScroller from "react-virtualized/dist/commonjs/WindowScroller";
-import AutoSizer from "react-virtualized/dist/commonjs/AutoSizer";
-import VList from "react-virtualized/dist/commonjs/List";
-import InfiniteLoader from "react-virtualized/dist/commonjs/InfiniteLoader";
-import _ from "lodash";
-import { SingerInfo } from "./utils/interface";
-import SingerCard from "./component/SingerCard";
+import React, { createContext } from "react";
 import SingerTarget from "./component/SingerTarget";
+import SingerList from "./component/SingerList";
+interface Tag {
+  data: string;
+  key: string;
+}
+export const SingerContext = createContext<{
+  params: { area: string; type: string; initial: string };
+}>({ params: { area: "-1", type: "-1", initial: "" } });
 
-const Main = () => {
-  const [type, setType] = useState<number>(-1);
-  const [area, setArea] = useState<number>(-1);
-  const [offset, setOffset] = useState<number>(0);
-  const [initial, setInitial] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [hasMore, setHasMore] = useState(true);
-  const [dataList, setDataList] = useState<any>([]);
-  const listRef = useRef(null);
-  const ref = useRef(null);
-  useEffect(() => {
-    getArtistList({ type, area, offset: 0, initial }).then((res) => {
-      setDataList(_.chunk(res.artists, 5));
-      setOffset(0);
-    });
-  }, [type, area, initial]);
-
-  const areaNavBarData = [
+const Singer = () => {
+  const areaNavBarData: Tag[] = [
     {
       data: "全部",
-
-      key: -1,
+      key: "-1",
     },
 
     {
       data: "华语",
-
-      key: 7,
+      key: "7",
     },
 
     {
       data: "欧美",
-
-      key: 96,
+      key: "96",
     },
 
     {
       data: "日本",
-
-      key: 8,
+      key: "8",
     },
 
     {
       data: "韩国",
-
-      key: 16,
+      key: "16",
     },
 
     {
       data: "其他",
-
-      key: 0,
+      key: "0",
     },
   ];
 
-  const typeNavBarData = [
+  const typeNavBarData: Tag[] = [
     {
       data: "全部",
 
-      key: -1,
+      key: "-1",
     },
 
     {
       data: "男歌手",
 
-      key: 1,
+      key: "1",
     },
 
     {
       data: "女歌手",
 
-      key: 2,
+      key: "2",
     },
 
     {
       data: "乐队",
 
-      key: 3,
+      key: "3",
     },
   ];
 
-  const initialNavBarData = [
+  const initialNavBarData: Tag[] = [
     {
       data: "全部",
 
@@ -258,178 +233,34 @@ const Main = () => {
     },
   ];
 
-  // const handleInfiniteOnLoad = () => {
-
-  //   setLoading(true);
-
-  //   setOffset(`${+offset + 1}`);
-
-  //   setLoading(false);
-  // };
-
-  const changeActive = (
-    chageStateType: any,
-    changeStateData: number | string
-  ) => {
-    switch (chageStateType) {
-      case "type":
-        setType(changeStateData as number);
-
-        break;
-
-      case "area":
-        setArea(changeStateData as number);
-
-        break;
-
-      case "initial":
-        setInitial(changeStateData as string);
-        break;
-    }
-  };
-  const loadedRowsMap: { [key: string]: number } = {};
-
-  const handleInfiniteOnLoad = ({
-    startIndex,
-    stopIndex,
-  }: {
-    startIndex: number;
-    stopIndex: number;
-  }): any => {
-    for (let i = startIndex; i <= stopIndex; i++) {
-      loadedRowsMap[i] = 1;
-    }
-    if (stopIndex + 1 < (offset + 1) * 6) {
-      return;
-    }
-    getArtistList({ type, area, offset: `${offset + 1}`, initial }).then(
-      (res) => {
-        setDataList(dataList.concat(_.chunk(res.artists, 5)));
-        setOffset(offset + 1);
-      }
-    );
-  };
-
-  const isRowLoaded = ({ index }: { index: number }) => !!loadedRowsMap[index];
-  const renderItem = ({ index, key, style }: any) => {
-    const data = dataList[index];
-
-    return (
-      <List
-        key={key}
-        grid={{ gutter: 0, column: 5 }}
-        style={style}
-        dataSource={data}
-        renderItem={(item: SingerInfo) => (
-          <List.Item key={data.id}>
-            {/* <Card title={data.id}>Card content</Card> */}
-            <SingerCard data={item} />
-          </List.Item>
-        )}
-      />
-    );
-  };
-  const vlist = ({
-    height,
-    isScrolling,
-    onChildScroll,
-    scrollTop,
-    onRowsRendered,
-    width,
-  }: any) => (
-    <VList
-      autoHeight
-      height={height}
-      isScrolling={isScrolling}
-      onScroll={onChildScroll}
-      overscanRowCount={5}
-      rowCount={dataList.length}
-      rowHeight={100}
-      rowRenderer={renderItem}
-      onRowsRendered={onRowsRendered}
-      scrollTop={scrollTop}
-      width={width}
-    />
-  );
-  const autoSize = ({
-    height,
-    isScrolling,
-    onChildScroll,
-    scrollTop,
-    onRowsRendered,
-  }: any) => (
-    <AutoSizer disableHeight>
-      {({ width }) =>
-        vlist({
-          height,
-          isScrolling,
-          onChildScroll,
-          scrollTop,
-          onRowsRendered,
-          width,
-        })
-      }
-    </AutoSizer>
-  );
-  const infiniteLoader = ({
-    height,
-    isScrolling,
-    onChildScroll,
-    scrollTop,
-  }: any) => (
-    <InfiniteLoader
-      isRowLoaded={isRowLoaded}
-      loadMoreRows={handleInfiniteOnLoad}
-      rowCount={dataList.length}
-    >
-      {({ onRowsRendered }) =>
-        autoSize({
-          height,
-          isScrolling,
-          onChildScroll,
-          scrollTop,
-          onRowsRendered,
-        })
-      }
-    </InfiniteLoader>
-  );
-
   return (
-    <>
-      <div className="singer" ref={ref}>
+    <SingerContext.Provider
+      value={{ params: { area: "-1", type: "-1", initial: "" } }}
+    >
+      <div className="singer">
         <div className="singer-tag">
           <SingerTarget
             className="area"
-            data={areaNavBarData}
-            currentActive={area}
-            customFunction={changeActive}
-            stateType="area"
+            tagsData={areaNavBarData}
+            type="area"
           />
           <SingerTarget
             className="type"
-            data={typeNavBarData}
-            currentActive={type}
-            customFunction={changeActive}
-            stateType="type"
+            tagsData={typeNavBarData}
+            type="type"
           />
           <SingerTarget
             className="initial"
-            data={initialNavBarData}
-            currentActive={initial}
-            customFunction={changeActive}
-            stateType="initial"
+            tagsData={initialNavBarData}
+            type="initial"
           />
         </div>
-        <div className="singer-list" ref={listRef}>
-          <List>
-            {dataList.length > 0 && (
-              <WindowScroller>{infiniteLoader}</WindowScroller>
-            )}
-          </List>
+        <div className="singer-list">
+          <SingerList />
         </div>
       </div>
-    </>
+    </SingerContext.Provider>
   );
 };
 
-export default Main;
+export default Singer;

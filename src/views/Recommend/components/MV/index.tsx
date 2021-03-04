@@ -21,10 +21,44 @@ const MVArea = () => {
       title="推荐MV"
       style={{
         transform: "translate3d(0, 0, 0)",
-        height: "150px",
+        // height: "150px",
         width: "100%",
       }}
-    ></SectionMod>
+    >
+      {MvList &&
+        _.chunk(MvList, 5).map((items: any, index: number) => {
+          return (
+            <div key={index}>
+              <div className="div1">
+                {items.map((MvListItem: Mv) => (
+                  <div
+                    className="mv-card"
+                    style={{ width: "145px", height: "200px" }}
+                    key={MvListItem.id}
+                  >
+                    <div className="mv-card-cover">
+                      <img
+                        src={MvListItem.picUrl}
+                        alt={MvListItem.copywriter ?? ""}
+                        className="mv-pic"
+                      />
+                    </div>
+                    <h4 className="mv-title">
+                      <span className="mv-title-txt">
+                        {MvListItem.name}
+                      </span>
+                    </h4>
+                    <div className="mv-playcount">
+                      播放量：
+                      {MvListItem.playCount}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+    </SectionMod>
   );
 };
 export default MVArea;

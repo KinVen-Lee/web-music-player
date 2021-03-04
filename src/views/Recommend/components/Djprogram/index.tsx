@@ -21,7 +21,7 @@ const DjprogramArea = () => {
       title="推荐电台"
       style={{
         transform: "translate3d(0, 0, 0)",
-        height: "150px",
+        // height: "150px",
         width: "100%",
       }}
     ></SectionMod>

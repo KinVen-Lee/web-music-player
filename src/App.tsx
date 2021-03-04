@@ -63,7 +63,7 @@ const App = () => {
             <Header className="imusic-header">
               <Input placeholder="搜索音乐" />
             </Header>
-            <Content className="imusic-content">
+            <Content className="imusic-content" style={{ overflow: 'auto' }}>
               {/* <Routes>
                 <Route path="/" element={<MusicHall />} />
                 <Route path="/mv" element={<MV />} />

@@ -10,11 +10,11 @@ const Recommend = () => {
   return (
     <>
       <div className="div">
-        {/* <BannerArea /> */}
-        {/* <MVArea /> */}
+        <BannerArea />
         <SongListArea />
-        {/* <NewSongArea /> */}
-        {/* <DjprogramArea /> */}
+        <NewSongArea />
+        <MVArea />
+        <DjprogramArea />
       </div>
     </>
   );

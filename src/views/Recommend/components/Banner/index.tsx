@@ -4,6 +4,7 @@ import "./index.less";
 import _ from "lodash";
 import React from "react";
 import SectionMod from "../SectionMod";
+import { Banner } from "./interface";
 /**
  * 首页banner
  */
@@ -28,8 +29,8 @@ const BannerArea = () => {
               <div
                 className={`carousel-item carousel-item${index} banner-carousel`}
               >
-                {items.map((bannerListItem: any) => (
-                  <div className="banner-card" key={bannerListItem.targetId}>
+                {items.map((bannerListItem: Banner) => (
+                  <div className="banner-card" key={bannerListItem.imageUrl}>
                     <a href="#" className="banner-link">
                       <img
                         src={bannerListItem.imageUrl}
