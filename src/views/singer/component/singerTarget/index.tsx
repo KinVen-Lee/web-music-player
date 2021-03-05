@@ -17,21 +17,27 @@ interface Tag {
 const SingerTarget = (props: SingerTargetProps) => {
   const { tagsData, type, className } = props;
   const [selectedTag, setSelectedTag] = useState(tagsData[0]);
-  const singerContext = useContext(SingerContext);
+  const { dispatch } = useContext(SingerContext);
   const handleChange = (tag: Tag) => {
     setSelectedTag(tag);
     switch (type) {
       case "area":
-        singerContext.params = {
-          ...singerContext.params,
-          area: tag.key,
-        };
+        dispatch({
+          type,
+          payload: { area: tag.key },
+        });
         break;
       case "type":
-        singerContext.params.type = tag.key;
+        dispatch({
+          type,
+          payload: { type: tag.key },
+        });
         break;
       case "initial":
-        singerContext.params.initial = tag.key;
+        dispatch({
+          type,
+          payload: { initial: tag.key },
+        });
         break;
       default:
         break;

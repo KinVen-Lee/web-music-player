@@ -1,6 +1,6 @@
 import TopMenu from "./component/TopMenu";
 import MusicHall from "./views/MusicHall";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import { HashRouter as Router, Link, Route, Routes } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { Input } from "antd";
 import {
@@ -63,11 +63,7 @@ const App = () => {
             <Header className="imusic-header">
               <Input placeholder="搜索音乐" />
             </Header>
-            <Content className="imusic-content" style={{ overflow: 'auto' }}>
-              {/* <Routes>
-                <Route path="/" element={<MusicHall />} />
-                <Route path="/mv" element={<MV />} />
-              </Routes> */}
+            <Content className="imusic-content" style={{ overflow: "auto" }}>
               <AppRouter />
             </Content>
             <div className="imusic-footer">

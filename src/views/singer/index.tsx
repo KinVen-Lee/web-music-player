@@ -1,16 +1,53 @@
 import "./index.less";
-import React, { createContext } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import SingerTarget from "./component/SingerTarget";
 import SingerList from "./component/SingerList";
+import { useState } from "react";
+import { getArtistList } from "@/netWork/request";
 interface Tag {
   data: string;
   key: string;
 }
-export const SingerContext = createContext<{
-  params: { area: string; type: string; initial: string };
-}>({ params: { area: "-1", type: "-1", initial: "" } });
+export const SingerContext = createContext<any>(null);
+
+const initState = {
+  type: "-1",
+  area: "-1",
+  initial: "",
+};
+
+const reducer = (state: any, action: any) => {
+  switch (action.type) {
+    case "type":
+      return {
+        ...state,
+        type: action.payload.type,
+      };
+
+    case "area":
+      return {
+        ...state,
+        area: action.payload.area,
+      };
+    case "initial":
+      return {
+        ...state,
+        initial: action.payload.initial,
+      };
+    default:
+      return state;
+  }
+};
 
 const Singer = () => {
+  // const [type, setType] = useState<number>(-1);
+  // const [area, setArea] = useState<number>(-1);
+  // const [initial, setInitial] = useState("");
+  // const [offset, setOffset] = useState<number>(0);
+  const [dataList, setDataList] = useState<any>([]);
+  const [state, dispatch] = useReducer(reducer, initState);
+  // const { type, area, initial } = state;
+
   const areaNavBarData: Tag[] = [
     {
       data: "全部",
@@ -234,9 +271,7 @@ const Singer = () => {
   ];
 
   return (
-    <SingerContext.Provider
-      value={{ params: { area: "-1", type: "-1", initial: "" } }}
-    >
+    <SingerContext.Provider value={{ state, dispatch }}>
       <div className="singer">
         <div className="singer-tag">
           <SingerTarget
