@@ -54,7 +54,7 @@ module.exports = {
           }),
           // webpack-dev-server 强化插件
           new DashboardPlugin(),
-          new webpack.HotModuleReplacementPlugin(),
+          // new webpack.HotModuleReplacementPlugin(),
         ],
         []
       ),

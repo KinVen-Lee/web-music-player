@@ -1,5 +1,6 @@
 import MusicHall from "@/views/MusicHall";
 import MV from "@/views/MV";
+import Rank from "@/views/Rank";
 import Recommend from "@/views/Recommend";
 import Singer from "@/views/Singer";
 import SingerDetail from "@/views/SingerDetail";
@@ -16,6 +17,10 @@ const AppRouter = () => {
         {
           path: "singer",
           element: <Singer />,
+        },
+        {
+          path: "rank",
+          element: <Rank />,
         },
       ],
     },
