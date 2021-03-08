@@ -2,7 +2,7 @@ import "./index.less";
 
 import { Tag } from "antd";
 import { useContext, useState } from "react";
-import { SingerContext } from "../..";
+import { SingerContext } from "../../context.config";
 const { CheckableTag } = Tag;
 interface SingerTargetProps {
   className?: string;

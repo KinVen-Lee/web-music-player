@@ -35,47 +35,45 @@ module.exports = {
       "@assets": pathResolve("src/assets"),
     },
     plugins: [
-      // webpack构建进度条
-      new WebpackBar({
-        profile: true,
-      }),
       // new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       // 查看打包的进度
       // new SimpleProgressWebpackPlugin(),
       // 时间转换工具采取day替换moment
       // new AntdDayjsWebpackPlugin(),
       // // 新增模块循环依赖检测插件
-      // ...whenDev(
-      //   () => [
-      //     new CircularDependencyPlugin({
-      //       exclude: /node_modules/,
-      //       include: /src/,
-      //       failOnError: true,
-      //       allowAsyncCycles: false,
-      //       cwd: process.cwd(),
-      //     }),
-      //     // webpack-dev-server 强化插件
-      //     new DashboardPlugin(),
-      //     new webpack.HotModuleReplacementPlugin(),
-      //   ],
-      //   []
-      // ),
+      ...whenDev(
+        () => [
+          // webpack构建进度条
+          new WebpackBar({ profile: true }),
+          new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            include: /src/,
+            failOnError: true,
+            allowAsyncCycles: false,
+            cwd: process.cwd(),
+          }),
+          // webpack-dev-server 强化插件
+          new DashboardPlugin(),
+          new webpack.HotModuleReplacementPlugin(),
+        ],
+        []
+      ),
       /**
        * 编译产物分析
        *  - https://www.npmjs.com/package/webpack-bundle-analyzer
        * 新增打包产物分析插件
        */
-      // ...when(
-      //   isBuildAnalyzer,
-      //   () => [
-      //     new BundleAnalyzerPlugin({
-      //       analyzerMode: "static", // html 文件方式输出编译分析
-      //       openAnalyzer: false,
-      //       reportFilename: path.resolve(__dirname, `analyzer/index.html`),
-      //     }),
-      //   ],
-      //   []
-      // ),
+      ...when(
+        isBuildAnalyzer,
+        () => [
+          new BundleAnalyzerPlugin({
+            analyzerMode: "static", // html 文件方式输出编译分析
+            openAnalyzer: false,
+            reportFilename: path.resolve(__dirname, `analyzer/index.html`),
+          }),
+        ],
+        []
+      ),
       ...whenProd(
         () => [
           // new TerserPlugin({
@@ -102,6 +100,7 @@ module.exports = {
         []
       ),
     ],
+
     //抽离公用模块
     optimization: {
       splitChunks: {
@@ -161,21 +160,16 @@ module.exports = {
     presets: [],
     plugins: [
       // AntDesign 按需加载
+      // 配置 babel-plugin-import
       [
         "import",
-        {
-          libraryName: "antd",
-          libraryDirectory: "es",
-          style: true,
-        },
+        { libraryName: "antd", libraryDirectory: "es", style: true },
         "antd",
       ],
-      [
-        "@babel/plugin-proposal-decorators",
-        {
-          legacy: true,
-        },
-      ], // 用来支持装饰器
+      // 配置解析器
+      ["@babel/plugin-proposal-decorators", { legacy: true }],
+      ["@babel/plugin-proposal-class-properties", { loose: true }],
+      ["babel-plugin-styled-components", { displayName: true }],
     ],
     loaderOptions: {},
     loaderOptions: (babelLoaderOptions, { env, paths }) => {
@@ -201,22 +195,7 @@ module.exports = {
       ],
       []
     ),
-    {
-      plugin: CracoLessPlugin,
-      options: {
-        lessLoaderOptions: {
-          lessOptions: {
-            modifyVars: {
-              "@primary-color": "#1DA57A",
-              "@link-color": "#1DA57A",
-              "@border-radius-base": "2px",
-            },
-            javascriptEnabled: true,
-          },
-        },
-      },
-    },
-    // 方案1、配置Antd主题less
+
     {
       plugin: CracoLessPlugin,
       options: {
@@ -226,27 +205,39 @@ module.exports = {
             javascriptEnabled: true,
           },
         },
+        modifyLessRule: function () {
+          return {
+            test: /\.module\.less$/,
+            exclude: /node_modules/,
+            use: [
+              { loader: "style-loader" },
+              {
+                loader: "css-loader",
+                options: {
+                  modules: {
+                    localIdentName: "[local]_[hash:base64:6]",
+                  },
+                },
+              },
+              {
+                loader: "less-loader",
+                // options: {
+                //   modules: {
+                //     localIdentName: "[local]_[hash:base64:6]",
+                //   },
+                // },
+              },
+            ],
+          };
+        },
       },
     },
-    // 方案2、配置Antd主题
-    // {
-    //   plugin: CracoAntDesignPlugin,
-    //   options: {
-    //     customizeTheme: {
-    //       '@primary-color': '#FF061C'
-    //     }
-    //   }
-    // },
-    // 方案3、配置Antd主题
-    // {
-    //   plugin: CracoAntDesignPlugin,
-    //   options: {
-    //     customizeThemeLessPath: path.join(
-    //       __dirname,
-    //       "antd.customize.less"
-    //     ),
-    //   },
-    // },
+    {
+      plugin: CracoAntDesignPlugin,
+      options: {
+        customizeThemeLessPath: path.join(__dirname, "antd.customize.less"),
+      },
+    },
   ],
   devServer: {
     port: 8080,

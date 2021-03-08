@@ -4,11 +4,11 @@ import SingerTarget from "./component/SingerTarget";
 import SingerList from "./component/SingerList";
 import { useState } from "react";
 import { getArtistList } from "@/netWork/request";
+import { SingerContext } from "./context.config";
 interface Tag {
   data: string;
   key: string;
 }
-export const SingerContext = createContext<any>(null);
 
 const initState = {
   type: "-1",
