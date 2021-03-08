@@ -24,7 +24,7 @@ const AppRouter = () => {
         },
       ],
     },
-    { path: "/mv", element: <MV /> },
+    { path: "mv", element: <MV /> },
     {
       path: "artist",
       children: [{ path: ":id", element: <SingerDetail /> }],
