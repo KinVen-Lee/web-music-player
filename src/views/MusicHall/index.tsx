@@ -17,8 +17,8 @@ const MusicHall = () => {
 
     {
       data: "排行榜",
-      key: "topList",
-      path: "topList",
+      key: "rank",
+      path: "rank",
     },
     {
       data: "分类歌单",

@@ -1,29 +1,58 @@
-.cover {
-  height: 170px;
-  width: 150px;
-  padding-top: 15px;
-  transition: padding 0.3s ease-in-out;
-  &:hover {
-    padding-top: 0;
-    padding-bottom: 15px;
+.div1 {
+  width: 400px;
+  height: 150px;
+  background-color: red;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  .cover {
+    height: 150px;
+    width: 150px;
+    background-color: rosybrown;
+    border-radius: 5px;
+    .playcount {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      background-color: green;
+      width: 20px;
+      height: 10px;
+    }
   }
-  .cover-pic {
-    width: 100%;
+  .describe {
     height: 100%;
-    border-radius: 10px;
-    background-color: red;
-  }
-}
-.miaoshu {
-  height: 40px;
-  width: 150px;
-  background: rgb(97, 97, 97);
-  margin-top: 10px;
-  .album-name {
-    font-size: 14px;
-  }
-  .album-time {
-    font-size: 12px;
-    color: rgba(156, 156, 156, 0.7);
+    flex: 1;
+    background-color: sandybrown;
+    .title {
+      background-color: slateblue;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      font-weight: 700;
+      padding-left: 15px;
+    }
+    .songlist {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      justify-content: space-evenly;
+      background-color: teal;
+      flex-direction: column;
+      .song {
+        width: 100%;
+        height: 30px;
+        background-color: yellowgreen;
+      }
+      .song1 {
+        width: 100%;
+        height: 30px;
+        background-color: red;
+      }
+      .song2 {
+        width: 100%;
+        height: 30px;
+        background-color: green;
+      }
+    }
   }
 }
