@@ -9,6 +9,7 @@ interface Tag {
   data: string;
   key: string;
 }
+// export const SingerContext = createContext<any>(null);
 
 const initState = {
   type: "-1",

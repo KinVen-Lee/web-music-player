@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import "./index.less";
 
+import React, { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { SingerContext } from "../../context.config";
 import { getArtistList } from "@/netWork/request";
 import { Artist, SingerResult } from "../../utils/interface";
 import SingerCard from "../SingerCard";
-import "./index.less";
 import { Button } from "antd";
-import { SingerContext } from "../../context.config";
 
 const SingerList = () => {
   const [offset, setOffset] = useState<number>(0);

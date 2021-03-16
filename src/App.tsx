@@ -25,7 +25,7 @@ const App = () => {
     <Router>
       <div className="imusic-main">
         <Layout className="imusic-layout">
-          {/* <Sider className="imusic-sider">
+          <Sider className="imusic-sider">
             <div className="logo" />
             <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
               <Menu.ItemGroup key="g1" title="在线音乐">
@@ -57,18 +57,18 @@ const App = () => {
                 </Menu.Item>
               </Menu.ItemGroup>
             </Menu>
-          </Sider> */}
+          </Sider>
 
           <Layout className="imusic-main-container">
-            {/* <Header className="imusic-header">
+            <Header className="imusic-header">
               <Input placeholder="搜索音乐" />
-            </Header> */}
+            </Header>
             <Content className="imusic-content" style={{ overflow: "auto" }}>
               <AppRouter />
             </Content>
-            {/* <div className="imusic-footer">
+            <div className="imusic-footer">
               <MusicPlay />
-            </div> */}
+            </div>
           </Layout>
         </Layout>
       </div>

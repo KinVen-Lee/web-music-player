@@ -14,3 +14,6 @@ const RankCard = (props: AlbumCardProps) => {
   );
 };
 export default RankCard;
+
+
+
