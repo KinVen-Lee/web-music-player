@@ -1,24 +1,20 @@
-import TopMenu from "./component/TopMenu";
-import MusicHall from "./views/MusicHall";
-import { HashRouter as Router, Link, Route, Routes } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import { Input } from "antd";
 import {
   AppstoreOutlined,
   BarChartOutlined,
   CloudOutlined,
   ShopOutlined,
   TeamOutlined,
-  UserOutlined,
   UploadOutlined,
+  UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
-import "./App.less";
-import MusicPlay from "./component/MusicPlay";
+import { Layout, Menu } from "antd";
 import React from "react";
-import MV from "./views/MV";
-import AppRouter from "./router";
-const { Header, Content, Footer, Sider } = Layout;
+import { HashRouter as Router, Link } from "react-router-dom";
+import "./App.less"; 
+import MusicPlay from "./component/MusicPlay";
+import Header from "./views/Header";
+const { Content, Footer, Sider } = Layout;
 
 const App = () => {
   return (
@@ -58,14 +54,13 @@ const App = () => {
               </Menu.ItemGroup>
             </Menu>
           </Sider>
-
           <Layout className="imusic-main-container">
-            <Header className="imusic-header">
-              <Input placeholder="搜索音乐" />
-            </Header>
-            <Content className="imusic-content" style={{ overflow: "auto" }}>
+            <Layout.Header className="imusic-header">
+              <Header></Header>
+            </Layout.Header>
+            {/* <Content className="imusic-content" style={{ overflow: "auto" }}>
               <AppRouter />
-            </Content>
+            </Content> */}
             <div className="imusic-footer">
               <MusicPlay />
             </div>

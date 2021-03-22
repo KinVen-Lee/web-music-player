@@ -840,17 +840,16 @@ type: 搜索类型；默认为 1 即单曲 , 取值意义 : 1: 单曲, 10: 专�
 
 /**
  * 搜索建议
-说明 : 调用此接口 , 传入搜索关键词可获得搜索建议 , 搜索结果同时包含单曲 , 歌手 , 歌单 ,mv 信息
-
-必选参数 : keywords : 关键词
-
-可选参数 : type : 如果传 'mobile' 则返回移动端数据
-
-接口地址 : /search/suggest
-
-调用例子 : /search/suggest?keywords= 海阔天空 /search/suggest?keywords= 海阔天空&type=mobile
+ * 说明 : 调用此接口 , 传入搜索关键词可获得搜索建议 , 搜索结果同时包含单曲 , 歌手 , 歌单 ,mv 信息
+ * 必选参数 : keywords : 关键词
+ * 可选参数 : type : 如果传 'mobile' 则返回移动端数据
+ * 接口地址 : /search/suggest
+ * 调用例子 : /search/suggest?keywords= 海阔天空 /search/suggest?keywords= 海阔天空&type=mobile
  */
-
+export async function getSearchSuggest(keywords: string, type?: string) {
+  const result = await get("/search/suggest", { keywords, type });
+  return result;
+}
 /**
  * 搜索多重匹配
 说明 : 调用此接口 , 传入搜索关键词可获得搜索结果
